@@ -3,8 +3,10 @@
   include "./includes/header.php";
 ?>
 <?php
-  if (isset($_GET)) {
-      echo "bite";
+  if ($_SESSION['role']=='admin') {
+      include "./action/actionAdmin.php";
+  } else {
+      include "./action/actionUtilisateur.php";
   }
  ?>
 <?php
