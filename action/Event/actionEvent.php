@@ -3,7 +3,7 @@ include "./includes/header.php";
 include "./model/sqlEvent.php";
 ?>
 
-<form method="POST" action="deleteEvent.php">	
+<form method="POST" action="delEvent.php">	
    <label for="Supprimer">Supprimer un evenement</label><br/>
 		<select name="idEvent">
 		<?php 
@@ -20,7 +20,7 @@ include "./model/sqlEvent.php";
 
 
 
-<form method="POST" action="insertEvent.php">	
+<form method="POST" action="addEvent.php">	
 	<p> Ajouter un enenement </p>
 	<label for="ajout"/>nom :</label>
 		<input  type="text" name="nomEvent"><br/>
@@ -38,7 +38,7 @@ include "./model/sqlEvent.php";
 
 
 
-<form method="POST" action="updateEvent.php">
+<form method="POST" action="updEvent.php">
     <label for="update">Nouveau nom</label><br/>
 		<input type="text" name="updateNom"><br/>
      <label for="update">Nouveau description</label><br/>
