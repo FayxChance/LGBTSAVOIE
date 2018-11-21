@@ -7,8 +7,7 @@ include "./model/sqlActu.php";
    <label for="Supprimer">Supprimer une Actus</label><br/>
 		<select name="idActus">
 		<?php 
-			$affichage = "SELECT * FROM `Actu` WHERE 1";
-			$results = mysqli_query($c,$affichage) or die ("erreur requete");
+			
 			while($row = mysqli_fetch_assoc(selectAllActu())){
 				echo"<option value='".$row["idActus"]."'>";
 				echo $row["titreActus"];
