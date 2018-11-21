@@ -4,7 +4,7 @@ include "./model/sqlActu.php";
 ?>
 
 <form method="POST" action="deleteActu.php">	
-   <label for="Supprimer">Supprimer une Actus</label><br/>
+   <label for="Supprimer">Supprimer une Actu</label><br/>
 		<select name="idActus">
 		<?php 
 			
@@ -21,7 +21,7 @@ include "./model/sqlActu.php";
 
 
 <form method="POST" action="insertActu.php">	
-	<p> Ajouter une performance </p>
+	<p> Ajouter une Actu </p>
 	<label for="ajout"/>titre :</label>
 		<input  type="text" name="titreActu"><br/>
 	<label for="ajout"/>date :</label>
