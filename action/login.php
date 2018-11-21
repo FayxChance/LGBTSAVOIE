@@ -7,7 +7,6 @@
 			$_SESSION['connecte']=true;
 			$_SESSION['role']=$row['roleUtilisateur'];
 		}
-		var_dump($_SESSION);
 	}
 	header("Location:../index.php");
 ?>
