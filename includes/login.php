@@ -1,4 +1,4 @@
-<form method='post' action='./includes/login.php'>
+<form method='post' action='./action/login.php'>
 	<p>
 		<label for='pseudoLogin'>Pseudo</label>
 		<input type='text' name='pseudoLogin'/>

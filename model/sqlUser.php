@@ -1,14 +1,17 @@
 <?php
-
+  echo getcwd();
+  include "../includes/db.php";
   function selectUtilisateur($id)
   {
-      $select="SELECT (`nomUtilisateur`,`prenomUtilisateurs`,`pseudoUtilisateur`,`telUtilisateur`,`mailUtilisateur`,`mdpUtilisateur`,`roleUtilisateur`,`fonctionUtilisateur`) FROM Utilisateurs (`nomUtilisateur`,`prenomUtilisateurs`,`pseudoUtilisateur`,`telUtilisateur`,`mailUtilisateur`,`mdpUtilisateur`,`roleUtilisateur`,`fonctionUtilisateur`)
-      WHERE id=$id";
-      return mysqli_query($c, $select);
+    global $c;
+    $select="SELECT (`nomUtilisateur`,`prenomUtilisateurs`,`pseudoUtilisateur`,`telUtilisateur`,`mailUtilisateur`,`mdpUtilisateur`,`roleUtilisateur`,`fonctionUtilisateur`) FROM Utilisateur (`nomUtilisateur`,`prenomUtilisateurs`,`pseudoUtilisateur`,`telUtilisateur`,`mailUtilisateur`,`mdpUtilisateur`,`roleUtilisateur`,`fonctionUtilisateur`)
+    WHERE id=$id";
+    return mysqli_query($c, $select);
   }
 
 function selectAllUtilisateurs()
 {
-    $select="SELECT * FROM Utilisateurs ";
-    return mysqli_query($c, $select) ;
+  global $c;
+  $select="SELECT * FROM Utilisateur WHERE 1";
+  return mysqli_query($c, $select) ;
 }
