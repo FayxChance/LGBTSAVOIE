@@ -5,6 +5,13 @@
       $select= "SELECT (`titreActus`,`dateActus`,`utilisateurActus`,`contenuActus`) FROM `Actu`(`titreActus`,`dateActus`,`utilisateurActus`,`contenuActus`) WHERE id=$id";
       return mysqli_query($c, $select) or die("Erreur envoie");
   }
+  
+  function SelectAllActu()
+  {
+	global $c;
+	$select= "SELECT (`titreActus`,`dateActus`,`utilisateurActus`,`contenuActus`) FROM `Actu`(`titreActus`,`dateActus`,`utilisateurActus`,`contenuActus`)";
+    return mysqli_query($c, $select) or die("Erreur envoie");
+  }
 
  function deleteActu($id)
  {

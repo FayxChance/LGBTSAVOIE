@@ -1,14 +1,22 @@
 <?php
-
+  include "../includes/db.php";
   function selectUtilisateur($id)
   {
-      $select="SELECT (`nomUtilisateur`,`prenomUtilisateurs`,`pseudoUtilisateur`,`telUtilisateur`,`mailUtilisateur`,`mdpUtilisateur`,`roleUtilisateur`,`fonctionUtilisateur`) FROM Utilisateurs (`nomUtilisateur`,`prenomUtilisateurs`,`pseudoUtilisateur`,`telUtilisateur`,`mailUtilisateur`,`mdpUtilisateur`,`roleUtilisateur`,`fonctionUtilisateur`)
-      WHERE id=$id";
-      return mysqli_query($c, $select);
+    global $c;
+    $select="SELECT (`nomUtilisateur`,`prenomUtilisateurs`,`pseudoUtilisateur`,`telUtilisateur`,`mailUtilisateur`,`mdpUtilisateur`,`roleUtilisateur`) FROM Utilisateur (`nomUtilisateur`,`prenomUtilisateurs`,`pseudoUtilisateur`,`telUtilisateur`,`mailUtilisateur`,`mdpUtilisateur`,`roleUtilisateur`) WHERE id=$id";
+    return mysqli_query($c, $select);
   }
 
 function selectAllUtilisateurs()
 {
-    $select="SELECT * FROM Utilisateurs ";
-    return mysqli_query($c, $select) ;
-}
+  global $c;
+  $select="SELECT (`nomUtilisateur`,`prenomUtilisateurs`,`pseudoUtilisateur`,`telUtilisateur`,`mailUtilisateur`,`mdpUtilisateur`,`roleUtilisateur`) FROM Utilisateur (`nomUtilisateur`,`prenomUtilisateurs`,`pseudoUtilisateur`,`telUtilisateur`,`mailUtilisateur`,`mdpUtilisateur`,`roleUtilisateur`)";
+  return mysqli_query($c, $select) ;
+ }
+  
+function insertUtilisateur($nomUtilisateur, $prenomUtilisateurs, $pseudoUtilisateur, $telUtilisateur, $mailUtilisateur, $mdpUtilisateur, $roleUtilisateur)
+ {
+	$inser= "INSERT INTO `Utilisateur`(`nomUtilisateur`,`prenomUtilisateurs`,`pseudoUtilisateur`,`telUtilisateur`, `mailUtilisateur`,`mdpUtilisateur`,`roleUtilisateur`)
+    VALUES(`$nomUtilisateur`,`$prenomUtilisateurs`,`$pseudoUtilisateur`,`$telUtilisateur`, `$mailUtilisateur`,`$mdpUtilisateur`,`$roleUtilisateur`)";
+    return mysqli_query($c, $inser) or die("Erreur envoie");
+ }
