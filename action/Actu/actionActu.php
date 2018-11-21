@@ -26,8 +26,6 @@ include "./model/sqlActu.php";
 		<input  type="text" name="titreActu"><br/>
 	<label for="ajout"/>date :</label>
 		<input  type="date" name="dateActu"><br/>
-    <label for="ajout"/>utilisateur :</label>
-		<input  type="integer" name="utilisateurActu"><br/>
      <label for="ajout"/>contenu :</label>
 		<input  type="text" name="contenuActu"><br/>
 
