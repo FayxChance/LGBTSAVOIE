@@ -1,5 +1,5 @@
 <?php
     include "./model/sqlActu.php";
-    inserActu($_POST["idActu"],$_POST["idActu"],$_POST["idActu"],$_POST["idActu"]);
+    inserActu($_POST["titreActu"],$_POST["dateActu"],$_POST["utilisateurActu"],$_POST["contenuActu"]);
     header "location:index.php?actionAdmin=actu&actionUtilisateur=actu";
 ?>

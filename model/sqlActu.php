@@ -29,7 +29,7 @@
     }
 
 
-    function updateTitreActu($id,$contenu,$titre);
+    function updateActu($id,$contenu,$titre);
     {
         global $c;
         $update= "UPDATE `Actu` SET `titreActu`=$titre,`contenuActu`=$contenu WHERE `Actu`.`idActu`=$id";
