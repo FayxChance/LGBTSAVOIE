@@ -47,8 +47,8 @@ include "./model/sqlEvent.php";
     <label for="update">Nouveau lieu</label><br/>
         <input type="text" name="updateLieu"><br/>
     <label for="update">Nouveau projet associé</label><br/>
-        <input type="integer" name="updateProjet"><br/>-->
+        <input type="integer" name="updateProjet"><br/>
 
 
 	<input  type="submit" name="updateEvent" value="update">
-</form>
+</form>-->
