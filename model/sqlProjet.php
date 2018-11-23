@@ -1,4 +1,4 @@
-<?php
+ <?php
   include "../../includes/db.php";
   function selectAllProjet()
   {
@@ -10,7 +10,7 @@
  function deleteProjet($id)
  {
    global $c;
-   $delete= "DELETE FROM `Projet` WHERE `Projet`.`idProjet`=$id";
+   $delete= "DELETE FROM `Projet` WHERE `Projet`.`idProjet`=$id"; 
    return mysqli_query($c, $delete);
  }
 
