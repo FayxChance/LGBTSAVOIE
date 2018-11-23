@@ -1,12 +1,18 @@
 <?php
+echo  getcwd();
+
 	session_start();
 	include "./model/sqlUser.php";
 	include "./model/sqlProjet.php";
-	$results = SelectAllProjet();
+	$results = selectAllProjet();
+
 	while ($row = mysqli_fetch_assoc($results)) {
-		echo  "<ul><li>".$row["titreActus"]."</li>
-				<li>".$row["dateActus"]."</li>
-				<li>".$row["utilisateurActus"]."</li>
-				<li>".$row["contenuActus"]."</li></ul>" ;
+		$rowUser=mysqli_fetch_assoc(selectUtilisateur($row["auteurProjet"]));
+		echo
+		"<ul>
+			<li>".$rowUser["pseudoUtilisateur"]."</li>
+			<li>".$row["titreProjet"]."</li>
+			<li>".$row["descriptionProjet"]."</li>
+		</ul>" ;
   }
 ?>

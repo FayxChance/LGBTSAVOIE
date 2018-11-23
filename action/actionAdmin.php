@@ -1,5 +1,4 @@
 <?php
-
   switch ($_GET['actionAdmin']) {
     case 'index':
       include_once ".";
@@ -20,7 +19,8 @@
       include_once "./includes/contact.php";
       break;*/
     default:
-      include_once ".";
+      include_once "./includes/accueil.php";
       break;
     }
+
 ?>

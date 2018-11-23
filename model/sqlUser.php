@@ -3,7 +3,7 @@
   function selectUtilisateur($id)
   {
     global $c;
-    $select="SELECT (`nomUtilisateur`,`prenomUtilisateurs`,`pseudoUtilisateur`,`telUtilisateur`,`mailUtilisateur`,`mdpUtilisateur`,`roleUtilisateur`) FROM Utilisateur (`nomUtilisateur`,`prenomUtilisateurs`,`pseudoUtilisateur`,`telUtilisateur`,`mailUtilisateur`,`mdpUtilisateur`,`roleUtilisateur`) WHERE id=$id";
+    $select="SELECT `idUtilisateur`, `nomUtilisateur`, `prenomUtilisateur`, `pseudoUtilisateur`, `telUtilisateur`, `mailUtilisateur`, `mdpUtilisateur`, `roleUtilisateur` FROM `Utilisateur` WHERE  idUtilisateur=$id";
     return mysqli_query($c, $select);
   }
 

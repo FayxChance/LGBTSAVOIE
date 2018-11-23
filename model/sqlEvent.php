@@ -8,10 +8,10 @@ include "../../includes/db.php";
       return mysqli_query($c, $select);
   }
 
-  function SelectAllEvent()
+  function selectAllEvent()
   {
-       global $c;
-	$select= "SELECT * FROM `Evenement` WHERE 1";
+    global $c;
+	  $select= "SELECT * FROM `Evenement` WHERE 1";
     return mysqli_query($c, $select);
   }
 

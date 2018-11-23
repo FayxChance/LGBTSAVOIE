@@ -2,11 +2,9 @@
  ?>
 <form method="POST" action="./action/Actu/deleteActu.php">
    <label for="Supprimer">Supprimer une Actus</label><br/>
-   <?php
-     $res=selectAllActu();
-     ?>
     <select name="champIdDelete">
 		  <?php
+      $res=selectAllActu();
 			  while( $row =mysqli_fetch_assoc($res)){
 				  echo '<option value="'.$row["idActus"].'">'.$row["titreActus"].'</option>';
 			  }

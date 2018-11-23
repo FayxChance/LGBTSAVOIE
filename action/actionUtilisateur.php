@@ -25,3 +25,4 @@
       include_once "./includes/accueil.php";
       break;
   }
+?>

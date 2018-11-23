@@ -1,4 +1,5 @@
 <?php
+echo getcwd();
 	session_start();
 	include "./model/sqlUser.php";
 	include "./model/sqlActu.php";
