@@ -2,7 +2,7 @@
 	session_start();
 	include "./model/sqlUser.php";
 	include "./model/sqlProjet.php";
-	$results = SelectAllActu();
+	$results = SelectAllProjet();
 	while ($row = mysqli_fetch_assoc($results)) {
 		echo  "<ul><li>".$row["titreActus"]."</li>
 				<li>".$row["dateActus"]."</li>

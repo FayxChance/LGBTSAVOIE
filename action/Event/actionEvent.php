@@ -8,8 +8,8 @@ include "./model/sqlEvent.php";
 		<?php
 			$res=selectAllEvent();
 			while($row = mysqli_fetch_assoc($res)){
-				echo"<option value='".$row["idEvent"]."'>";
-				echo $row["titreEvent"];
+				echo"<option value='".$row["idEvenement"]."'>";
+				echo $row["nomEvenement"];
 				echo"</option>";
 			}
 		?>
@@ -23,9 +23,9 @@ include "./model/sqlEvent.php";
 	<p> Ajouter un evenement </p>
 	<label for="ajout"/>nom :</label>
 		<input  type="text" name="nomEvent"><br/>
-	<label for="ajout"/>desctiption :</label>
+	<label for="ajout"/>description :</label>
 		<input  type="text" name="descriptionEvent"><br/>
-    <label for="ajout"/>dete :</label>
+    <label for="ajout"/>date :</label>
 		<input  type="date" name="dateEvent"><br/>
      <label for="ajout"/>lieu :</label>
 		<input  type="text" name="lieuEvent"><br/>
