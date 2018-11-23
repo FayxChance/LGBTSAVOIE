@@ -1,9 +1,9 @@
 <?php
-    include "../../model/sqlActu.php";
+    include "../../model/sqlEvent.php";
    
    
-    deleteActu($_POST["idEvent"]);
+    deleteEvent($_POST["idEvent"]);
   
 
-    header("Location:../../index.php?actionAdmin=actu&actionUtilisateur=actu");
+    header("Location:../../index.php?actionAdmin=agenda&actionUtilisateur=agenda");
 ?>
