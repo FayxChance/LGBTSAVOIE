@@ -2,7 +2,7 @@
 include "./model/sqlEvent.php";
 ?>
 
-<form method="POST" action="delEvent.php">
+<form method="POST" action="./action/Event/delEvent.php">
    <label for="Supprimer">Supprimer un evenement</label><br/>
 		<select name="idEvent">
 		<?php
