@@ -17,7 +17,7 @@
        global $c;
        $inser= "INSERT INTO `Actu`( `titreActus`, `dateActus`, `utilisateurActus`, `contenuActus`)
        VALUES('$titre', '$date', $utilisateur, '$contenu')";
-       return mysqli_query($c, $inser) or die("Erreur envoie");
+       return mysqli_query($c, $inser) ;
    }
   function selectAllActu()
   {

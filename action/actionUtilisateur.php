@@ -1,7 +1,7 @@
 <?php
   switch ($_GET['actionUtilisateur']) {
     case 'index':
-      include_once ".";
+      include_once "./includes/accueil.php";
       break;
     case 'actu':
       include_once "./includes/actu.php";
@@ -22,6 +22,6 @@
       include_once "./includes/contact.php";
       break;
     default:
-      include_once ".";
+      include_once "./includes/accueil.php";
       break;
   }

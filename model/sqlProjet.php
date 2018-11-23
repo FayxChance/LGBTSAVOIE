@@ -1,19 +1,22 @@
 <?php
-  function selectProjet()
+  include "../../includes/db.php";
+  function selectAllProjet()
   {
-      $select= "SELECT (`auteurProjet`,`titreProjet`,`descriptionProjet`) FROM `Projet`(`auteurProjet`,`titreProjet`,`descriptionProjet`)";
-      return mysqli_query($c, $select) or die("Erreur envoie");
+    global $c;
+    $select= "SELECT `idProjet`, `auteurProjet`, `titreProjet`, `descriptionProjet` FROM `Projet` WHERE 1";
+    return mysqli_query($c, $select);
   }
 
  function deleteProjet($id)
  {
-     $delete= "DELETE (`auteurProjet`,`titreProjet`,`descriptionProjet`) FROM `Projet`(`auteurProjet`,`titreProjet`,`descriptionProjet`) WHERE id=$id ";
-     return mysqli_query($c, $delete) or die("Erreur envoie");
+   global $c;
+   $delete= "DELETE FROM `Projet` WHERE `Projet`.`idProjet`=$id";
+   return mysqli_query($c, $delete);
  }
 
    function inserProjet($nom, $titre, $description)
    {
        $inser= "INSERT INTO `Projet`(`auteurProjet`,`titreProjet`,`descriptionProjet`)
                     VALUES($nom,$titre,$description)";
-       return mysqli_query($c, $inser) or die("Erreur envoie");
+       return mysqli_query($c, $inser);
    }
