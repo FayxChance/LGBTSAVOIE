@@ -1,4 +1,5 @@
 <?php
+
   switch ($_GET['actionAdmin']) {
     case 'index':
       include_once ".";

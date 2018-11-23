@@ -1,5 +1,9 @@
 <?php
-    include "./model/sqlActu.php";
-    deleteActu($_POST["idActus"]);
-    header "location:index.php?actionAdmin=actu&actionUtilisateur=actu";
+    include "../../model/sqlActu.php";
+    echo "yolo";
+    echo $_POST['champIdDelete'];
+    deleteActu($_POST["champIdDelete"]);
+    echo "yolo";
+
+    header("Location:../../index.php?actionAdmin=actu&actionUtilisateur=actu");
 ?>

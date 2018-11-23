@@ -25,6 +25,7 @@
       </ul>
     </nav>
     <?php
+    var_dump($_SESSION);
       if ($_SESSION['role']==1) {
         echo '  <nav>
             <ul>

@@ -1,13 +1,12 @@
 <?php
-include "./includes/header.php";
 include "./model/sqlEvent.php";
 ?>
 
-<form method="POST" action="delEvent.php">	
+<form method="POST" action="delEvent.php">
    <label for="Supprimer">Supprimer un evenement</label><br/>
 		<select name="idEvent">
-		<?php 
-			
+		<?php
+
 			while($row = mysqli_fetch_assoc(selectAllEvent())){
 				echo"<option value='".$row["idEvent"]."'>";
 				echo $row["titreEvent"];
@@ -20,7 +19,7 @@ include "./model/sqlEvent.php";
 
 
 
-<form method="POST" action="addEvent.php">	
+<form method="POST" action="addEvent.php">
 	<p> Ajouter un enenement </p>
 	<label for="ajout"/>nom :</label>
 		<input  type="text" name="nomEvent"><br/>
