@@ -13,7 +13,10 @@
     </p>
   </section>
   <h2>Quelques actus</h2>
-  <div class="quelqueActu">
-    <?php include_once "./includes/actu.php" ?>
+  <div class="quelquesActu">
+    <?php
+    include_once "./model/affichage.php";
+    afficheLastActu();
+     ?>
   </div>
 </div>

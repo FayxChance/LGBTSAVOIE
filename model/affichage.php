@@ -48,28 +48,73 @@
 			</p>
 		</form>";
 	}
-
-	function afficheActu() {
+	function afficheAllActu() {
 		include_once "./model/sqlUser.php";
 		include_once "./model/sqlActu.php";
-		$results = SelectAllActu();
+		$results = selectAllActu();
 		while ($row = mysqli_fetch_assoc($results)) {
-			echo  "<ul><li>".$row["titreActus"]."</li>
-					<li>".$row["dateActus"]."</li>
-					<li>".$row["utilisateurActus"]."</li>
-					<li>".$row["contenuActus"]."</li></ul>" ;
+			$resultUser=selectUtilisateur($row['utilisateurActus']);
+			$rowUser=mysqli_fetch_assoc($resultUser);
+			afficheUneActu($row['titreActus'],$row['dateActus'],$rowUser['pseudoUtilisateur'],$row['contenuActus']);
 	  }
   }
+	function afficheLastActu(){
+		include_once "./model/sqlUser.php";
+		include_once "./model/sqlActu.php";
+		$results = selectLastActu();
+		while ($row = mysqli_fetch_assoc($results)){
+			$resultUser=selectUtilisateur($row['utilisateurActus']);
+			$rowUser=mysqli_fetch_assoc($resultUser);
+			afficheUneActu($row['titreActus'],$row['dateActus'],$rowUser['pseudoUtilisateur'],$row['contenuActus']);
+		}
+	}
+	function afficheUneActu($titre,$date,$utilisateur,$contenu){
+		echo
+		 "<div class='actu'>
+				<h3>".$titre."</h3>
+				<article>".$contenu."</article>
+				<span>Auteur : ".$utilisateur."</span>
+				<span>Date : ".$date."</span>
+			</div>";
+	}
+
+	function afficheUlUtilisateur(){
+		echo '
+		<ul class="headerUl">
+			<li class="headerLi" id="headerLiIndex"><a class="headerA" href="index.php?actionUtilisateur=index  "                               >   Accueil       </a></li>
+			<li class="headerLi" id="headerLiActu"><a class="headerA" href="index.php?actionUtilisateur=actu   "      >   Actus         </a></li>
+			<li class="headerLi" id="headerLiAgenda"><a class="headerA" href="index.php?actionUtilisateur=agenda "    >   Agenda        </a></li>
+			<li class="headerLi" id="headerLiProjet"><a class="headerA" href="index.php?actionUtilisateur=projet "    >   Projets       </a></li>
+			<li class="headerLi" id="headerLiGalerie"><a class="headerA" href="index.php?actionUtilisateur=galerie"   >   Galerie       </a></li>
+			<li class="headerLi" id="headerLiLogin"><a class="headerA" href="index.php?actionUtilisateur=login  "     >   Connexion/Inscription      </a></li>
+			<li class="headerLi" id="headerLiContact"><a class="headerA" href="index.php?actionUtilisateur=contact"   >   Contact       </a></li>
+		</ul>';
+	}
+	function afficheUlAdmin(){
+		if ($_SESSION['role']==1) {
+			echo '
+					<ul class="headerUl">
+						<li class="headerLi"><a class="headerA" href="index.php?actionAdmin=index&actionUtilisateur=index  "     >   Accueil       </a></li>
+						<li class="headerLi"><a class="headerA" href="index.php?actionAdmin=actu&actionUtilisateur=actu   "      >   Actus         </a></li>
+						<li class="headerLi"><a class="headerA" href="index.php?actionAdmin=agenda&actionUtilisateur=agenda "    >   Agenda        </a></li>
+						<li class="headerLi"><a class="headerA" href="index.php?actionAdmin=projet&actionUtilisateur=projet "    >   Projets       </a></li>
+						<li class="headerLi"><a class="headerA" href="index.php?actionAdmin=galerie&actionUtilisateur=galerie"   >   Galerie       </a></li>
+						<li class="headerLi"><a class="headerA" href="index.php?actionAdmin=login&actionUtilisateur=login  "     >   Connexion/Inscription      </a></li>
+						<li class="headerLi"><a class="headerA" href="index.php?actionAdmin=contact&actionUtilisateur=contact"   >   Contact       </a></li>
+					</ul>
+				';
+		}
+	}
 	function afficheEvent(){
-	include_once "./model/sqlEvent.php";
-	$results = SelectAllEvent();
-	while ($row = mysqli_fetch_assoc($results)) {
-		echo "
-		<ul>
-			 <li>".$row["nomEvenement"]."</li>
-			<li>".$row["descriptionEvenement"]."</li>
-			 <li>".$row["dateEvenement"]."</li>
-			<li>".$row["lieuEvenement"]."</li>
-		 </ul>";
-	 }
+		include_once "./model/sqlEvent.php";
+		$results = SelectAllEvent();
+		while ($row = mysqli_fetch_assoc($results)) {
+			echo "
+			<ul>
+			 	<li>".$row["nomEvenement"]."</li>
+				<li>".$row["descriptionEvenement"]."</li>
+			 	<li>".$row["dateEvenement"]."</li>
+				<li>".$row["lieuEvenement"]."</li>
+		 	</ul>";
+	 	}
 	}

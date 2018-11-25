@@ -27,6 +27,7 @@ header {
   padding: 10px;
   text-align: center;
   background: rgba(0,0,200,0.2);
+  color: white;
 
 }
 
@@ -49,14 +50,14 @@ header {
 .headerA:visited, .headerA:link {
   text-decoration: none;
   color: black;
-
 }
+
 .headerLi {
   margin: 5px auto;
   padding: 10px;
   width: auto;
   text-align: center;
-  background-color: red;
+  background-color: white;
   border-radius: 10px;
 }
 #headerLiContact {
@@ -70,4 +71,8 @@ header {
   width: 65vw;
   margin: 60px auto;
   text-align: center;
+}
+.actu {
+  text-align: left;
+  margin: 20px 20px;
 }
