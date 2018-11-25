@@ -1,5 +1,5 @@
 <?php
-include "./model/sqlEvent.php";
+include_once "./model/sqlEvent.php";
 ?>
 
 <form method="POST" action="./action/Event/delEvent.php">

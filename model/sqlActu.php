@@ -1,5 +1,5 @@
 <?php
-  include "../../includes/db.php";
+  include_once "../../includes/db.php";
   function selectActu($id)
   {
       global $c;

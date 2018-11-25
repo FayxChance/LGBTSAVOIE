@@ -1,9 +1,6 @@
 <?php
-echo  getcwd();
-
-	session_start();
-	include "./model/sqlUser.php";
-	include "./model/sqlProjet.php";
+	include_once "./model/sqlUser.php";
+	include_once "./model/sqlProjet.php";
 	$results = selectAllProjet();
 
 	while ($row = mysqli_fetch_assoc($results)) {

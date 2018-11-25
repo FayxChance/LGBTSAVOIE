@@ -1,4 +1,59 @@
 * {
+
   margin: 0px;
   padding: 0px;
+}
+html {
+  height: 100vh;
+}
+
+header {
+  background: rgba(0,0,200,0.25);
+}
+
+.headerH1 {
+  border:solid purple 4px;
+  border-radius: 6px;
+  width: 20vw;
+  box-shadow:
+    0 0 0 4px blue,
+    0 0 0 8px green,
+    0 0 0 12px yellow,
+    0 0 0 16px orange,
+    0 0 0 20px red;
+  margin: 20px auto;
+  padding: 10px;
+  text-align: center;
+  background: rgba(0,0,200,0.2);
+
+}
+
+.headerNav {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+}
+.headerUl {
+  display: flex;
+  margin: 0 10px;
+  list-style: none;
+}
+.headerUl {
+  display: flex;
+  margin: 0 10px;
+  text-decoration: none;
+  list-style: none;
+}
+.headerA:visited, .headerA:link {
+  text-decoration: none;
+  color: black;
+
+}
+.headerLi {
+  margin: 5px auto;
+  padding: 10px;
+  width: auto;
+  text-align: center;
+  background-color: red;
+  border-radius: 10px;
 }

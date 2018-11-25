@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	function formulaire_login (){
 		echo("
 		<form method='post' action='login.php'>
@@ -18,8 +17,8 @@
 
 		</form>");
 	}
-	include "sqlActu.php";
-	include "sqlUser.php";
+	include_once "sqlActu.php";
+	include_once "sqlUser.php";
   function afficheActu(){
     $row= mysqli_fetch_assoc(selectActu());
     $utlisateur=mysqli_fetch_assoc(selectUtilisateur($row['utilisateurActus']));

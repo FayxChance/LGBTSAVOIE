@@ -1,8 +1,7 @@
 <?php
-echo getcwd();
-	session_start();
-	include "./model/sqlUser.php";
-	include "./model/sqlActu.php";
+
+	include_once "./model/sqlUser.php";
+	include_once "./model/sqlActu.php";
 	$results = SelectAllActu();
 	while ($row = mysqli_fetch_assoc($results)) {
 		echo  "<ul><li>".$row["titreActus"]."</li>

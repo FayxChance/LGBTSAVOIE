@@ -1,5 +1,5 @@
 <?php
-    include "../../model/sqlActu.php";
+    include_once "../../model/sqlActu.php";
     echo "yolo";
     echo $_POST['champIdDelete'];
     deleteActu($_POST["champIdDelete"]);

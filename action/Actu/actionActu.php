@@ -1,4 +1,4 @@
-<?php include "./model/sqlActu.php";
+<?php include_once "./model/sqlActu.php";
  ?>
 <form method="POST" action="./action/Actu/deleteActu.php">
    <label for="Supprimer">Supprimer une Actus</label><br/>

@@ -1,5 +1,5 @@
 <?php
- include "./model/sqlEvent.php";
+ include_once "./model/sqlEvent.php";
  $results = SelectAllEvent();
  while ($row = mysqli_fetch_assoc($results)) {
    echo "

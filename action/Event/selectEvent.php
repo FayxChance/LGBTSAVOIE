@@ -1,5 +1,5 @@
 <?php
-    include "./model/sqlEvent.php";
-    deleteActu($_POST["idActus"]);
-    header "location:index.php?actionAdmin=actu&actionUtilisateur=actu";
+    include_once "./model/sqlEvent.php";
+    deleteEvent($_POST["idEvent"]);
+    header ("location:index.php?actionAdmin=event&actionUtilisateur=event");
 ?>

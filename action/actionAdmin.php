@@ -19,7 +19,6 @@
       include_once "./includes/contact.php";
       break;*/
     default:
-      include_once "./includes/accueil.php";
       break;
     }
 

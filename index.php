@@ -1,9 +1,9 @@
 <?php
   session_start();
-  include "./includes/header.php";
+  include_once "./includes/header.php";
 ?>
 <?php
-  if ($_SESSION['role']==1) {include "./action/actionAdmin.php";}
-  include "./action/actionUtilisateur.php";
-  include "./includes/footer.php";
+  if ($_SESSION['role']==1) {include_once "./action/actionAdmin.php";}
+  include_once "./action/actionUtilisateur.php";
+  include_once "./includes/footer.php";
 ?>

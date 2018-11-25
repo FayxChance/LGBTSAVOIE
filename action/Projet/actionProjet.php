@@ -1,4 +1,4 @@
-<?php include "./model/sqlProjet.php";
+<?php include_once "./model/sqlProjet.php";
  ?>
  <form class="" action="./action/Projet/deleteProjet.php" method="post">
    <label for="supprimer">Supprimer un projet</label>

@@ -1,5 +1,5 @@
  <?php
-  include "../../includes/db.php";
+  include_once "../../includes/db.php";
   function selectAllProjet(){
     global $c;
     $select= "SELECT `idProjet`, `auteurProjet`, `titreProjet`, `descriptionProjet` FROM `Projet` WHERE 1";
