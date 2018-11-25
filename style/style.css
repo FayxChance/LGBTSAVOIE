@@ -1,5 +1,5 @@
 * {
-
+  font-family: fantasy;
   margin: 0px;
   padding: 0px;
 }
@@ -7,10 +7,12 @@ html {
   height: 100vh;
 }
 
-header {
+body {
   background: rgba(0,0,200,0.25);
 }
-
+header {
+  background-color: rgba(0,0,200,0.2);
+}
 .headerH1 {
   border:solid purple 4px;
   border-radius: 6px;
@@ -56,4 +58,16 @@ header {
   text-align: center;
   background-color: red;
   border-radius: 10px;
+}
+#headerLiContact {
+  background-color: white;
+}
+.accueil {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: rgba(0,0,200,0.2);
+  width: 65vw;
+  margin: 60px auto;
+  text-align: center;
 }
