@@ -92,7 +92,7 @@
 			else {
 				echo '<li class="headerLi" ><form action="./action/logout.php" method="POST"><input id="headerALogin" class="headerA"  value="Deconnexion" type="submit"   ></form></li>';
 			}
-			echo '<li class="headerLi" ><a id="headerA	Contact" class="headerA" href="index.php?actionUtilisateur=contact"   >   Contact       </a></li>
+			echo '<li class="headerLi" ><a id="headerAContact" class="headerA" href="index.php?actionUtilisateur=contact"   >   Contact       </a></li>
 		</ul>';
 	}
 	function afficheUlAdmin(){

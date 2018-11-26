@@ -13,7 +13,7 @@ function selectAllUtilisateurs(){
  }
 
 function insertUtilisateur($nomUtilisateur, $prenomUtilisateurs, $pseudoUtilisateur, $telUtilisateur, $mailUtilisateur, $mdpUtilisateur, $roleUtilisateur){
-	$inser= "INSERT INTO `Utilisateur`(`nomUtilisateur`,`prenomUtilisateurs`,`pseudoUtilisateur`,`telUtilisateur`, `mailUtilisateur`,`mdpUtilisateur`,`roleUtilisateur`)
-    VALUES(`$nomUtilisateur`,`$prenomUtilisateurs`,`$pseudoUtilisateur`,`$telUtilisateur`, `$mailUtilisateur`,`$mdpUtilisateur`,`$roleUtilisateur`)";
-  return mysqli_query($c, $inser) or die("Erreur envoie");
+  global $c;
+  	$inser= "INSERT INTO `Utilisateur`(`nomUtilisateur`, `prenomUtilisateur`, `pseudoUtilisateur`, `telUtilisateur`, `mailUtilisateur`, `mdpUtilisateur`, `roleUtilisateur`) VALUES ('$nomUtilisateur','$prenomUtilisateurs','$pseudoUtilisateur','$telUtilisateur', '$mailUtilisateur','$mdpUtilisateur','$roleUtilisateur')";
+  return mysqli_query($c, $inser) or die(mysqli_error($c));
  }
