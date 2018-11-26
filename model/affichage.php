@@ -77,17 +77,22 @@
 				<span>Date : ".$date."</span>
 			</div>";
 	}
-
 	function afficheUlUtilisateur(){
 		echo '
 		<ul class="headerUl">
-			<li class="headerLi" id="headerLiIndex"><a class="headerA" href="index.php?actionUtilisateur=index  "                               >   Accueil       </a></li>
-			<li class="headerLi" id="headerLiActu"><a class="headerA" href="index.php?actionUtilisateur=actu   "      >   Actus         </a></li>
-			<li class="headerLi" id="headerLiAgenda"><a class="headerA" href="index.php?actionUtilisateur=agenda "    >   Agenda        </a></li>
-			<li class="headerLi" id="headerLiProjet"><a class="headerA" href="index.php?actionUtilisateur=projet "    >   Projets       </a></li>
-			<li class="headerLi" id="headerLiGalerie"><a class="headerA" href="index.php?actionUtilisateur=galerie"   >   Galerie       </a></li>
-			<li class="headerLi" id="headerLiLogin"><a class="headerA" href="index.php?actionUtilisateur=login  "     >   Connexion/Inscription      </a></li>
-			<li class="headerLi" id="headerLiContact"><a class="headerA" href="index.php?actionUtilisateur=contact"   >   Contact       </a></li>
+			<li class="headerLi" ><a id="headerAIndex" class="headerA" href="index.php?actionUtilisateur=index  "                               >   Accueil       </a></li>
+			<li class="headerLi" ><a id="headerAActu" class="headerA" href="index.php?actionUtilisateur=actu   "      >   Actus         </a></li>
+			<li class="headerLi" ><a id="headerAAgenda" class="headerA" href="index.php?actionUtilisateur=agenda "    >   Agenda        </a></li>
+			<li class="headerLi" ><a id="headerAProjet" class="headerA" href="index.php?actionUtilisateur=projet "    >   Projets       </a></li>
+			<li class="headerLi" ><a id="headerAGalerie" class="headerA" href="index.php?actionUtilisateur=galerie"   >   Galerie       </a></li>';
+			if(!$_SESSION['connecte']){
+				echo '
+				<li class="headerLi" ><a id="headerALogin" class="headerA" href="index.php?actionUtilisateur=login  "     >   Connexion/Inscription      </a></li>';
+			}
+			else {
+				echo '<li class="headerLi" ><form action="./action/logout.php" method="POST"><input id="headerALogin" class="headerA"  value="Deconnexion" type="submit"   ></form></li>';
+			}
+			echo '<li class="headerLi" ><a id="headerA	Contact" class="headerA" href="index.php?actionUtilisateur=contact"   >   Contact       </a></li>
 		</ul>';
 	}
 	function afficheUlAdmin(){
