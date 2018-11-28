@@ -17,3 +17,4 @@ function insertUtilisateur($nomUtilisateur, $prenomUtilisateurs, $pseudoUtilisat
     VALUES(`$nomUtilisateur`,`$prenomUtilisateurs`,`$pseudoUtilisateur`,`$telUtilisateur`, `$mailUtilisateur`,`$mdpUtilisateur`,`$roleUtilisateur`)";
   return mysqli_query($c, $inser) or die("Erreur envoie");
  }
+?>
