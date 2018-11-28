@@ -77,7 +77,6 @@
 				<span>Date : ".$date."</span>
 			</div>";
 	}
-
 	function afficheUnProjet($auteur,$titre,$description){
 		echo
 		 "<div class='actu'>
@@ -86,7 +85,6 @@
 				<span>Auteur : ".$auteur."</span>
 			</div>";
 	}
-
 	function afficheAllProjet() {
 		include_once "./model/sqlUser.php";
 		include_once "./model/sqlProjet.php";
@@ -97,8 +95,6 @@
 			afficheUnProjet($rowUser['pseudoUtilisateur'],$row['titreProjet'],$row['descriptionProjet']);
 	  }
 	}
-
-
 	function afficheEtatConnexion(){
 		if (!$_SESSION['connecte']){
 			echo "Vous n'êtes pas connecté.";
@@ -113,7 +109,6 @@
 	
 	
 	}
-
 	function afficheUlUtilisateur(){
 		echo '
 		<ul class="headerUl">
@@ -147,16 +142,29 @@
 				';
 		}
 	}
-	function afficheEvent(){
+	/*function afficheEvent($jourDebut,$jourFin){
 		include_once "./model/sqlEvent.php";
-		$results = SelectAllEvent();
-		while ($row = mysqli_fetch_assoc($results)) {
-			echo "
-			<ul>
-			 	<li>".$row["nomEvenement"]."</li>
-				<li>".$row["descriptionEvenement"]."</li>
-			 	<li>".$row["dateEvenement"]."</li>
-				<li>".$row["lieuEvenement"]."</li>
-		 	</ul>";
-	 	}
+		
+		
+	}
+	function afficheUnEvent($idProjet,$nomEvent,$descEvent,$dateEvent,$lieuEvent){
+		//include_once "";
+		echo
+		 "<div class='event'>
+				<h3>".$nomEvent."</h3>
+				<h4>".$idProjet."</h4>
+				<article>".$descEvent."</article>
+				<span>".$dateEvent."</span>
+				<span>".$lieuEvent."</span>
+			</div>";
+	}
+	function formEventDate(){*/
+	function afficheEventJour($jour){
+		
+	}
+		echo "<form action='.' method='GET'>
+				<input type='date' id='debut'/>
+				<input type='date' id='fin' />
+				<input type='submit' name=''/>
+		";
 	}

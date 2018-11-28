@@ -1,33 +1,33 @@
 <?php
 include_once "../../includes/db.php";
 
-  function selectEvent($id)
-  {
+  function selectEvent($id){
       global $c;
       $select= "SELECT (`idProjet`,`nomEvenement`,`descriptionEvenement`,`dateEvenement`,`lieuEvenement`) FROM `Evenement`(`idProjet`,`nomEvenement`,`descriptionEvenement`,`dateEvenement`,`lieuEvenement`) WHERE id=$id";
       return mysqli_query($c, $select);
   }
 
-  function selectAllEvent()
-  {
+  function selectAllEvent(){
     global $c;
-	  $select= "SELECT * FROM `Evenement` WHERE 1";
+	$select= "SELECT * FROM `Evenement` WHERE 1";
     return mysqli_query($c, $select);
   }
 
 
- function deleteEvent($id)
- {
-      global $c;
-     $delete= "DELETE  FROM `Evenement` WHERE `Evenement`.`idEvenement`=$id ";
-     return mysqli_query($c, $delete);
+ function deleteEvent($id){
+	global $c;
+    $delete= "DELETE  FROM `Evenement` WHERE `Evenement`.`idEvenement`=$id ";
+    return mysqli_query($c, $delete);
  }
 
-   function inserEvent($id, $nom, $description, $date, $lieu)
-   {
+function inserEvent($id, $nom, $description, $date, $lieu){
      global $c;
      $inser= "INSERT INTO `Evenement`(`idProjet`,`nomEvenement`,`descriptionEvenement`,`dateEvenement`,`lieuEvenement`) VALUES($id,'$nom','$description','$date','$lieu')";
      return mysqli_query($c, $inser);
    }
-
+function selectDateEvent($jourDebut,$jourFin){
+	global $c;
+	$select="SELECT * FROM `Evenement` WHERE `dateEvenement`<'$jourFin' AND `dateEvenement`>'$jourDebut' ORDER BY ASC";
+	return mysqli_query($c,$select);
+}
 ?>
