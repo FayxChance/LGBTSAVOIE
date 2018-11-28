@@ -94,7 +94,7 @@
 		while ($row = mysqli_fetch_assoc($results)) {
 			$resultUser=selectUtilisateur($row['auteurProjet']);
 			$rowUser=mysqli_fetch_assoc($resultUser);
-			afficheUnProjet($rowUSer['auteurProjet'],$row['titreProjet'],$row['descriptionProjet']);
+			afficheUnProjet($rowUser['pseudoUtilisateur'],$row['titreProjet'],$row['descriptionProjet']);
 	  }
 	}
 
