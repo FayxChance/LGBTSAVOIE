@@ -15,6 +15,9 @@
     case 'galerie':
       include_once "./action/Galerie/actionGalerie.php";
       break;
+	case 'login':
+      include_once "./action/Login/actionLogin.php";
+      break;
     /*case 'contact':
       include_once "./includes/contact.php";
       break;*/
