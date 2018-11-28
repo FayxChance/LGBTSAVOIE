@@ -6,6 +6,7 @@
 		if( $_POST['pseudoLogin']==$row['pseudoUtilisateur'] && $_POST['mdpLogin']==$row['mdpUtilisateur'] ){
 			$_SESSION['connecte']=true;
 			$_SESSION['role']=$row['roleUtilisateur'];
+			$_SESSION['pseudoConnecte']=$row['pseudoUtilisateur'];
 		}
 	}
 	header("Location:../index.php");

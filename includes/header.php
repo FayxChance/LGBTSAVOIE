@@ -15,6 +15,9 @@
   <header>
     &nbsp;
     <h1 class="headerH1">LGBT + SAVOIE</h1>
+	<?php
+	afficheEtatConnexion();
+	?>
     <nav class="headerNav">
       <?php
         afficheUlUtilisateur();
