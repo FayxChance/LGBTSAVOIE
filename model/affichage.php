@@ -106,7 +106,7 @@
 		}
 		else {
 			echo "Vous êtes connecté en tant que : ".$_SESSION['pseudoConnecte'].".";
-			echo "<a href='../action/logout.php'>Se déconnecter</a>";
+			echo "<a href='./action/logout.php'>Se déconnecter</a>";
 			
 		}
 		
