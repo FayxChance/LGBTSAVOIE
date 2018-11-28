@@ -13,6 +13,7 @@ body {
 header {
   background-color: rgba(0,0,200,0.2);
   position:sticky;
+  position:-webkit-sticky;
 }
 .headerH1 {
   border:solid purple 4px;

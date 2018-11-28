@@ -17,9 +17,10 @@ function insertUtilisateur($nomUtilisateur, $prenomUtilisateurs, $pseudoUtilisat
   $inser= "INSERT INTO `Utilisateur`(`nomUtilisateur`, `prenomUtilisateur`, `pseudoUtilisateur`, `telUtilisateur`, `mailUtilisateur`, `mdpUtilisateur`, `roleUtilisateur`) VALUES ('$nomUtilisateur','$prenomUtilisateurs','$pseudoUtilisateur','$telUtilisateur', '$mailUtilisateur','$mdpUtilisateur','$roleUtilisateur')";
   return mysqli_query($c, $inser);
  }
+
 function deleteUtilisateur($id){
-  global $c;
-  $sql="DELETE FROM `Utilisateur` WHERE `Utilisateur`.`idUtilisateur` = $id";
-  return mysqli_query($c, $sql);
+  include_once "../../includes/db.php";
+  $delete= "DELETE FROM `Utilisateur` WHERE `Utilisateur`.`idUtilisateur`=$id";
+  return mysqli_query($c, $delete); ;
 }
 ?>
