@@ -80,3 +80,8 @@ header {
   color: purple;
 
 }
+
+footer {
+position: fixed;
+bottom: 0px;
+}
