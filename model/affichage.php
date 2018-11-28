@@ -77,6 +77,31 @@
 				<span>Date : ".$date."</span>
 			</div>";
 	}
+
+	function afficheUnProjet($auteur,$titre,$description){
+		echo
+		 "<div class='actu'>
+				<h3>".$titre."</h3>
+				<article>".$description."</article>
+				<span>Auteur : ".$auteur."</span>
+			</div>";
+	}
+
+	function afficheAllProjet() {
+		include_once "./model/sqlUser.php";
+		include_once "./model/sqlProjet.php";
+		$results = selectAllProjet();
+		while ($row = mysqli_fetch_assoc($results)) {
+			$resultUser=selectUtilisateur($row['auteurProjet']);
+			$rowUser=mysqli_fetch_assoc($resultUser);
+			afficheUnProjet($rowUser['pseudoUtilisateur'],$row['titreProjet'],$row['descriptionProjet']);
+	  }
+	}
+
+
+
+
+
 	function afficheUlUtilisateur(){
 		echo '
 		<ul class="headerUl">
