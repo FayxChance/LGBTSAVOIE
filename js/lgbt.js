@@ -1,5 +1,5 @@
 
-var idMenu = ["headerAIndex","headerAActu","headerAAgenda","headerAProjet","headerAGalerie","headerALogin"];
+var idMenu = ["headerAIndex","headerAActu","headerAAgenda","headerAProjet","headerAGalerie","headerAContact"];
 var idMenuBool = [false,false,false,false,false,false];
 var color = ['red','green','blue','orange','purple','yellow'];
 var i=0;

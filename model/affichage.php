@@ -122,14 +122,14 @@
 			<li class="headerLi" ><a id="headerAAgenda" class="headerA" href="index.php?actionUtilisateur=agenda "    >   Agenda        </a></li>
 			<li class="headerLi" ><a id="headerAProjet" class="headerA" href="index.php?actionUtilisateur=projet "    >   Projets       </a></li>
 			<li class="headerLi" ><a id="headerAGalerie" class="headerA" href="index.php?actionUtilisateur=galerie"   >   Galerie       </a></li>';
-			if(!$_SESSION['connecte']){
+			/* if(!$_SESSION['connecte']){
 				echo '
 				<li class="headerLi" ><a id="headerALogin" class="headerA" href="index.php?actionUtilisateur=login  "     >   Connexion/Inscription      </a></li>';
 			}
 			else {
 				echo '<li class="headerLi" ><form action="./action/logout.php" method="POST"><input id="headerALogin" class="headerA"  value="Deconnexion" type="submit"   ></form></li>';
-			}
-			echo '<li class="headerLi" ><a id="headerAContact" class="headerA" href="index.php?actionUtilisateur=contact"   >   Contact       </a></li>
+			} */
+		echo '<li class="headerLi" ><a id="headerAContact" class="headerA" href="index.php?actionUtilisateur=contact"   >   Contact       </a></li>
 		</ul>';
 	}
 	function afficheUlAdmin(){
@@ -141,12 +141,12 @@
 						<li class="headerLi"><a class="headerA" href="index.php?actionAdmin=agenda&actionUtilisateur=agenda "    >   Agenda        </a></li>
 						<li class="headerLi"><a class="headerA" href="index.php?actionAdmin=projet&actionUtilisateur=projet "    >   Projets       </a></li>
 						<li class="headerLi"><a class="headerA" href="index.php?actionAdmin=galerie&actionUtilisateur=galerie"   >   Galerie       </a></li>
-						<li class="headerLi"><a class="headerA" href="index.php?actionAdmin=login&actionUtilisateur=login  "     >   Connexion/Inscription      </a></li>
 						<li class="headerLi"><a class="headerA" href="index.php?actionAdmin=contact&actionUtilisateur=contact"   >   Contact       </a></li>
 					</ul>
 				';
 		}
 	}
+	/* <li class="headerLi"><a class="headerA" href="index.php?actionAdmin=login&actionUtilisateur=login  "     >   Connexion/Inscription      </a></li> */
 	function afficheEvent(){
 		include_once "./model/sqlEvent.php";
 		$results = SelectAllEvent();
