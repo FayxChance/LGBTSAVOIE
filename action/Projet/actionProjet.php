@@ -11,7 +11,7 @@
      }
    ?>
    </select>
-   <input class="bouton" type="submit" name="supprProjet" value="Suppression">
+   <input type="submit" name="supprProjet" value="Suppression">
  </form>
 
  <form method="POST" action="./action/Projet/insertProjet.php">
@@ -22,5 +22,5 @@
  	<input  type="text" name="descriptionProjet"><br/>
   <label for="ajout"/>Auteur :</label>
  	<input  type="number" name="auteurProjet"><br/>
- 	<input  class='bouton' type="submit" name="insererProjet" value="Ajouter un projet"><br/>
+ 	<input  type="submit" name="insererProjet" value="Ajouter un projet"><br/>
  </form>
