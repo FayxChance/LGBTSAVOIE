@@ -29,7 +29,6 @@ header {
   text-align: center;
   background: rgba(0,0,200,0.2);
   color: white;
-
 }
 
 .headerNav {
@@ -39,16 +38,10 @@ header {
 }
 .headerUl {
   display: flex;
-  margin: 0 10px;
   list-style: none;
 }
-.headerUl {
-  display: flex;
-  margin: 0 10px;
-  text-decoration: none;
-  list-style: none;
-}
-.headerA:visited, .headerA:link {
+
+.headerA, .headerA:visited, .headerA:link {
   text-decoration: none;
   color: black;
   padding: 10px;
@@ -56,9 +49,14 @@ header {
   text-align: center;
   background-color: white;
   border-radius: 10px;
+  border:none;
+  font-size: 16px;
 }
 .headerLi {
   margin: 20px auto;
+}
+#headerALogin{
+  position: left;
 }
 
 #headerLiContact {
