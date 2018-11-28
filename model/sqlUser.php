@@ -14,7 +14,12 @@ function selectAllUtilisateurs(){
 
 function insertUtilisateur($nomUtilisateur, $prenomUtilisateurs, $pseudoUtilisateur, $telUtilisateur, $mailUtilisateur, $mdpUtilisateur, $roleUtilisateur){
   global $c;
-  	$inser= "INSERT INTO `Utilisateur`(`nomUtilisateur`, `prenomUtilisateur`, `pseudoUtilisateur`, `telUtilisateur`, `mailUtilisateur`, `mdpUtilisateur`, `roleUtilisateur`) VALUES ('$nomUtilisateur','$prenomUtilisateurs','$pseudoUtilisateur','$telUtilisateur', '$mailUtilisateur','$mdpUtilisateur','$roleUtilisateur')";
-  return mysqli_query($c, $inser) or die(mysqli_error($c));
+  $inser= "INSERT INTO `Utilisateur`(`nomUtilisateur`, `prenomUtilisateur`, `pseudoUtilisateur`, `telUtilisateur`, `mailUtilisateur`, `mdpUtilisateur`, `roleUtilisateur`) VALUES ('$nomUtilisateur','$prenomUtilisateurs','$pseudoUtilisateur','$telUtilisateur', '$mailUtilisateur','$mdpUtilisateur','$roleUtilisateur')";
+  return mysqli_query($c, $inser);
  }
+function deleteUtilisateur($id){
+  global $c;
+  $sql="DELETE FROM `Utilisateur` WHERE `Utilisateur`.`idUtilisateur` = $id";
+  return mysqli_query($c, $sql);
+}
 ?>
