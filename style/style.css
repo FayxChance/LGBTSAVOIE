@@ -12,6 +12,8 @@ body {
 }
 header {
   background-color: rgba(0,0,200,0.2);
+  position:sticky;
+  position:-webkit-sticky;
 }
 .headerH1 {
   border:solid purple 4px;
@@ -28,7 +30,6 @@ header {
   text-align: center;
   background: rgba(0,0,200,0.2);
   color: white;
-
 }
 
 .headerNav {
@@ -39,11 +40,10 @@ header {
 
 .headerUl {
   display: flex;
-  margin: 0 10px;
-  text-decoration: none;
   list-style: none;
 }
-.headerA:visited, .headerA:link {
+
+.headerA, .headerA:visited, .headerA:link {
   text-decoration: none;
   color: black;
   padding: 10px;
@@ -51,6 +51,8 @@ header {
   text-align: center;
   background-color: white;
   border-radius: 10px;
+  border:none;
+  font-size: 16px;
 }
 .headerLi {
   margin: 20px auto;
@@ -65,6 +67,9 @@ nav li:hover {
 		border-bottom: 5px solid rgb(48,48,48);
 		text-align : center;
 		width: 200px;
+}
+#headerALogin{
+  position: left;
 }
 
 #headerLiContact {
@@ -87,4 +92,9 @@ nav li:hover {
 .actu h3 {
   color: purple;
 
+}
+
+footer {
+position: fixed;
+bottom: 0px;
 }
