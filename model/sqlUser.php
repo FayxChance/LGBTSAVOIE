@@ -17,3 +17,4 @@ function insertUtilisateur($nomUtilisateur, $prenomUtilisateurs, $pseudoUtilisat
   	$inser= "INSERT INTO `Utilisateur`(`nomUtilisateur`, `prenomUtilisateur`, `pseudoUtilisateur`, `telUtilisateur`, `mailUtilisateur`, `mdpUtilisateur`, `roleUtilisateur`) VALUES ('$nomUtilisateur','$prenomUtilisateurs','$pseudoUtilisateur','$telUtilisateur', '$mailUtilisateur','$mdpUtilisateur','$roleUtilisateur')";
   return mysqli_query($c, $inser) or die(mysqli_error($c));
  }
+?>
