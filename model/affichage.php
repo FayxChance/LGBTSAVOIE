@@ -14,7 +14,7 @@
 			</p>
 			<p>
 				<label for='action'></label>
-				<input type='submit' name='action' value='Connexion'/>
+				<input class='bouton' type='submit' name='action' value='Connexion'/>
 			</p>
 		</form>
 
@@ -48,7 +48,7 @@
 			</p>
 			<p>
 				<label for='action'></label>
-				<input type='submit' name='action' value='Inscription'/>
+				<input class='bouton' type='submit' name='action' value='Inscription'/>
 			</p>
 		</form>"
 
