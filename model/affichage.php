@@ -12,7 +12,7 @@
 			</p>
 			<p>
 				<label for='action'></label>
-				<input type='submit' name='action' value='Connexion'/>
+				<input class ='bouton'type='submit' name='action' value='Connexion'/>
 			</p>
 		</form>
 
@@ -44,7 +44,7 @@
 			</p>
 			<p>
 				<label for='action'></label>
-				<input type='submit' name='action' value='Inscription'/>
+				<input class='bouton' type='submit' name='action' value='Inscription'/>
 			</p>
 		</form>";
 	}
@@ -98,16 +98,16 @@
 	function afficheEtatConnexion(){
 		if (!$_SESSION['connecte']){
 			echo "Vous n'êtes pas connecté.";
-			echo  "<a href='index.php?actionUtilisateur=login'>Connexion/Inscription</a>"; 
+			echo  "<a href='index.php?actionUtilisateur=login'>Connexion/Inscription</a>";
 		}
 		else {
 			echo "Vous êtes connecté en tant que : ".$_SESSION['pseudoConnecte'].".";
 			echo "<a href='./action/logout.php'>Se déconnecter</a>";
-			
+
 		}
-		
-	
-	
+
+
+
 	}
 	function afficheUlUtilisateur(){
 		echo '
