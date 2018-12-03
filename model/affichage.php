@@ -50,22 +50,23 @@
 				<label for='action'></label>
 				<input type='submit' name='action' value='Inscription'/>
 			</p>
-		</form>
+		</form>"
 
 
-
-			<form method='POST' action='./action/User/deleteUser.php'>
+		if ($_SESSION["role"]==1){
+			"<form method='POST' action='./action/User/deleteUser.php'>
 			<label for='Supprimer'>Supprimer un utilisateur</label><br/>
 			<select name='idUtilisateur'>";
-
+			$res =selectAllUtilisateurs();
 			while($row = mysqli_fetch_assoc($res)){
 				echo '<option value='.$row['idUtilisateur'].'>';
 				echo $row['nomUtilisateur'];
 				echo '</option>';
 			}
 			echo "</select>
-		<input  class='bouton' type='submit' name='supprimerUtilisateur' value='Supprimer '> </br>
-		</form>";
+			<input  class='bouton' type='submit' name='supprimerUtilisateur' value='Supprimer '> </br>
+			</form>";
+		}
 	}
 	function afficheAllActu() {
 		include_once "./model/sqlUser.php";
