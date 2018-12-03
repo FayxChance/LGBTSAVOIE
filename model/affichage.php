@@ -1,6 +1,7 @@
 <?php
 	include_once "./sqlUser.php";
 	function formulaireLogin(){
+
 		echo "<p>Connexion</p>
 		<form method='post' action='./action/login.php'>
 			<p>
@@ -17,8 +18,8 @@
 			</p>
 		</form>
 
-		
-		
+
+
 		<p>Inscription</p>
 		<form method='post' action='./action/inscription.php'>
 			<p>
@@ -50,21 +51,19 @@
 				<input type='submit' name='action' value='Inscription'/>
 			</p>
 		</form>
-		
-		
-		
-		<form method='POST' action='./action/User/deleteUser.php'>
+
+
+
+			<form method='POST' action='./action/User/deleteUser.php'>
 			<label for='Supprimer'>Supprimer un utilisateur</label><br/>
-		<select name='idUtislisateur'>
-		<?php
-			$res=selectAllUtilisateurs();
+			<select name='idUtilisateur'>";
+
 			while($row = mysqli_fetch_assoc($res)){
-				echo'<option value='.$row['idUtilisateur'].'>;
+				echo '<option value='.$row['idUtilisateur'].'>';
 				echo $row['nomUtilisateur'];
-				echo'</option>';
+				echo '</option>';
 			}
-		?>
-		</select>
+			echo "</select>
 		<input  class='bouton' type='submit' name='supprimerUtilisateur' value='Supprimer '> </br>
 		</form>";
 	}
@@ -97,7 +96,6 @@
 				<span>Date : ".$date."</span>
 			</div>";
 	}
-
 	function afficheUnProjet($auteur,$titre,$description){
 		echo
 		 "<div class='actu'>
@@ -106,7 +104,6 @@
 				<span>Auteur : ".$auteur."</span>
 			</div>";
 	}
-
 	function afficheAllProjet() {
 		include_once "./model/sqlUser.php";
 		include_once "./model/sqlProjet.php";
@@ -117,8 +114,6 @@
 			afficheUnProjet($rowUser['pseudoUtilisateur'],$row['titreProjet'],$row['descriptionProjet']);
 	  }
 	}
-
-
 	function afficheEtatConnexion(){
 		if (!$_SESSION['connecte']){
 			echo "Vous n'êtes pas connecté.";
@@ -129,7 +124,6 @@
 			echo "<a href='./action/logout.php'>Se déconnecter</a>";
 		}
 	}
-
 	function afficheUlUtilisateur(){
 		echo '
 		<ul class="headerUl">
