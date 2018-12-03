@@ -14,7 +14,7 @@ include_once "./model/sqlEvent.php";
 			}
 		?>
 		</select>
-		<input  type="submit" name="supprimerEvent" value="Supprimer "> </br>
+		<input class="bouton" type="submit" name="supprimerEvent" value="Supprimer "> </br>
 </form>
 
 
@@ -32,7 +32,7 @@ include_once "./model/sqlEvent.php";
     <label for="ajout"/>projet associé :</label>
 		<input  type="number" name="projetEvent"><br/>
 
-	<input  type="submit" name="insererEvent" value="Ajouter un evenement"><br/>
+	<input class="bouton" type="submit" name="insererEvent" value="Ajouter un evenement"><br/>
 </form>
 
 
