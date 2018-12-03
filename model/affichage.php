@@ -165,17 +165,18 @@
 				<h3 class='nomEvenement'>".$row['nomEvenement']." </h3>
 				<h4 class='nomProjet'>Projet associé : ".$nomProjet['titreProjet']."</h4>
 				<article class='descriptionEvenement'>".$row['descriptionEvenement']."</article>
-				<span class='dateEvenement'>".$row['dateEvenement']."</span><br>
-				<span class='lieuEvenement'>".$row['lieuEvenement']."</span><br>
+				<p class='dateEvenement'>Date : ".$row['dateEvenement']."</p><br>
+				<p class='lieuEvenement'>Lieu : ".$row['lieuEvenement']."</p><br>
 			</div>";
 		}
 	}
 	function afficherSelectDate(){
 		if(!isset($_POST['submitSelectDate'])){$dateDebut=date('Y-m-d');$dateFin= date('Y-m-d',strtotime('+1 week'));} else {$dateDebut=$_POST['jourDebut'];$dateFin=$_POST['jourFin']; }
 		echo "<form method='POST' action='./index.php?actionUtilisateur=agenda'>
+		<section class='selectDateForm'>
 		<input type='date' name='jourDebut' value='".$dateDebut."'/>
-		<input type='date' name='jourFin' value='".$dateFin."'/><br>
-		<input type='submit' name='submitSelectDate'/>
+		<input type='date' name='jourFin' value='".$dateFin."'/><br></section>
+		<section class='selectDateForm'><input type='submit' name='submitSelectDate' id='submitSelectDate'/></section>
 		";
 
 	}

@@ -106,7 +106,17 @@ header {
   word-wrap: break-word;
 }
 .dateEvenement{
-  margin-left:
+  margin-top: 10px;
+  margin-left: 30px;
+}
+.lieuEvenement{
+  margin-top: 5px;
+  margin-left: 30px;
+}
+.selectDateForm {
+  margin: auto;
+  text-align: center;
+  margin:10px auto;
 }
 .actu{
   display: flex;
