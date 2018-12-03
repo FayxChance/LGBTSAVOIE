@@ -1,4 +1,5 @@
 <?php
+	include_once "./sqlUser.php";
 	function formulaireLogin(){
 		echo "<p>Connexion</p>
 		<form method='post' action='./action/login.php'>
@@ -16,6 +17,8 @@
 			</p>
 		</form>
 
+		
+		
 		<p>Inscription</p>
 		<form method='post' action='./action/inscription.php'>
 			<p>
@@ -46,6 +49,23 @@
 				<label for='action'></label>
 				<input type='submit' name='action' value='Inscription'/>
 			</p>
+		</form>
+		
+		
+		
+		<form method='POST' action='./action/User/deleteUser.php'>
+			<label for='Supprimer'>Supprimer un utilisateur</label><br/>
+		<select name='idUtislisateur'>
+		<?php
+			$res=selectAllUtilisateurs();
+			while($row = mysqli_fetch_assoc($res)){
+				echo'<option value='.$row['idUtilisateur'].'>;
+				echo $row['nomUtilisateur'];
+				echo'</option>';
+			}
+		?>
+		</select>
+		<input  class='bouton' type='submit' name='supprimerUtilisateur' value='Supprimer '> </br>
 		</form>";
 	}
 	function afficheAllActu() {
