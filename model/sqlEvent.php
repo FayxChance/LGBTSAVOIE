@@ -23,11 +23,16 @@ include_once "../../includes/db.php";
      return mysqli_query($c, $delete);
  }
 
-   function inserEvent($id, $nom, $description, $date, $lieu)
-   {
-     global $c;
-     $inser= "INSERT INTO `Evenement`(`idProjet`,`nomEvenement`,`descriptionEvenement`,`dateEvenement`,`lieuEvenement`) VALUES($id,'$nom','$description','$date','$lieu')";
-     return mysqli_query($c, $inser);
-   }
+  function inserEvent($id, $nom, $description, $date, $lieu)
+  {
+    global $c;
+    $inser= "INSERT INTO `Evenement`(`idProjet`,`nomEvenement`,`descriptionEvenement`,`dateEvenement`,`lieuEvenement`) VALUES($id,'$nom','$description','$date','$lieu')";
+    return mysqli_query($c, $inser);
+ }
+ function selectEventJour($jour){
+   global $c;
+   $sql= "SELECT `idEvenement`, `idProjet`, `nomEvenement`, `descriptionEvenement`, `dateEvenement`, `lieuEvenement` FROM `Evenement` WHERE `dateEvenement`='$jour' ORDER BY `dateEvenement` ASC";
+   return mysqli_query($c,$sql);
+ }
 
 ?>

@@ -102,16 +102,12 @@
 	function afficheEtatConnexion(){
 		if (!$_SESSION['connecte']){
 			echo "Vous n'êtes pas connecté.";
-			echo  "<a href='index.php?actionUtilisateur=login'>Connexion/Inscription</a>"; 
+			echo  "<a href='index.php?actionUtilisateur=login'>Connexion/Inscription</a>";
 		}
 		else {
 			echo "Vous êtes connecté en tant que : ".$_SESSION['pseudoConnecte'].".";
 			echo "<a href='./action/logout.php'>Se déconnecter</a>";
-			
 		}
-		
-	
-	
 	}
 
 	function afficheUlUtilisateur(){
@@ -122,14 +118,7 @@
 			<li class="headerLi" ><a id="headerAAgenda" class="headerA" href="index.php?actionUtilisateur=agenda "    >   Agenda        </a></li>
 			<li class="headerLi" ><a id="headerAProjet" class="headerA" href="index.php?actionUtilisateur=projet "    >   Projets       </a></li>
 			<li class="headerLi" ><a id="headerAGalerie" class="headerA" href="index.php?actionUtilisateur=galerie"   >   Galerie       </a></li>';
-			/* if(!$_SESSION['connecte']){
-				echo '
-				<li class="headerLi" ><a id="headerALogin" class="headerA" href="index.php?actionUtilisateur=login  "     >   Connexion/Inscription      </a></li>';
-			}
-			else {
-				echo '<li class="headerLi" ><form action="./action/logout.php" method="POST"><input id="headerALogin" class="headerA"  value="Deconnexion" type="submit"   ></form></li>';
-			} */
-		echo '<li class="headerLi" ><a id="headerAContact" class="headerA" href="index.php?actionUtilisateur=contact"   >   Contact       </a></li>
+			echo '<li class="headerLi" ><a id="headerAContact" class="headerA" href="index.php?actionUtilisateur=contact"   >   Contact       </a></li>
 		</ul>';
 	}
 	function afficheUlAdmin(){
@@ -147,16 +136,24 @@
 				';
 		}
 	}
-	function afficheEvent(){
+	function affichePeriode($jourDebut,$jourFin){
 		include_once "./model/sqlEvent.php";
-		$results = SelectAllEvent();
-		while ($row = mysqli_fetch_assoc($results)) {
-			echo "
-			<ul>
-			 	<li>".$row["nomEvenement"]."</li>
-				<li>".$row["descriptionEvenement"]."</li>
-			 	<li>".$row["dateEvenement"]."</li>
-				<li>".$row["lieuEvenement"]."</li>
-		 	</ul>";
-	 	}
+ 		$result=selectEventPeriode();
+		while($row=mysqli_fetch_assoc($result)){
+			afficheEvent($result['dateEvenement']);
+		}
+	}
+	function afficheEvent($jour){
+		include_once "./model/sqlEvent.php";
+		$result=selectEventJour($jour);
+		while($row=mysqli_fetch_assoc($result)){
+			echo
+			"<div class='agendaDiv'>
+				<h3 class='nomEvenement'>".$row['nomEvenement']." </h3>
+				<h4 class='nomProjet'>".$row['idProjet']."</h4>
+				<article class='descriptionEvenement'>".$row['descriptionEvenement']."</article>
+				<span class='dateEvenement'>".$row['dateEvenement']."</span><br>
+				<span class='lieuEvenement'>".$row['lieuEvenement']."</span><br>
+			</div>";
+		}
 	}
