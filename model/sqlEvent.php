@@ -34,5 +34,10 @@ include_once "../../includes/db.php";
    $sql= "SELECT `idEvenement`, `idProjet`, `nomEvenement`, `descriptionEvenement`, `dateEvenement`, `lieuEvenement` FROM `Evenement` WHERE `dateEvenement`='$jour' ORDER BY `dateEvenement` ASC";
    return mysqli_query($c,$sql);
  }
+ function selectEventPeriode($jourDebut,$jourFin){
+   global $c;
+   $sql="SELECT `dateEvenement` FROM `Evenement` WHERE dateEvenement>='$jourDebut' AND dateEvenement<='$jourFin' ORDER BY `dateEvenement` ASC";
+   return mysqli_query($c,$sql);
+ }
 
 ?>

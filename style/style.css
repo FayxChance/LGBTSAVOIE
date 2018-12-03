@@ -75,7 +75,48 @@ header {
   margin: 60px auto;
   text-align: center;
 }
-.actu {
+.agenda {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: rgba(0,0,200,0.2);
+  width: 65vw;
+  margin: 60px auto;
+}
+.agendaDiv{
+  text-align: left;
+  margin: 20px 20px;
+  border: dashed rgba(0,0,200,0.2);
+}
+.nomEvenement{
+  color: white;
+  font-size: 150%;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.nomProjet{
+  margin-left: 40px;
+  margin-top: 20px;
+  color:brown;
+}
+.descriptionEvenement{
+  margin-top: 20px;
+  margin-left: 60px;
+  margin-right: 40px;
+  word-wrap: break-word;
+}
+.dateEvenement{
+  margin-left:
+}
+.actu{
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: rgba(0,0,200,0.2);
+  width: 65vw;
+  margin: 60px auto;
+}
+.actuDiv {
   text-align: left;
   margin: 20px 20px;
   border: dashed rgba(0,0,200,0.2);
@@ -103,7 +144,17 @@ header {
 	border-radius: 5%;
 	-webkit-transition-duration:0.8s;
 }
-	
+
+.formulairesCIS{
+  text-align: center;
+  display:flex;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 20px;
+  width: 75vw;
+  border: black 2px solid;
+}
+
 
 footer {
 position: fixed;

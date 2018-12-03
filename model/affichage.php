@@ -1,56 +1,56 @@
 <?php
 	function formulaireLogin(){
 
-		echo "<p>Connexion</p>
+		echo "<div class='formulairesCIS'><div class='divConnexion'>Connexion
 		<form method='post' action='./action/login.php'>
 			<p>
 				<label for='pseudoLogin'>Pseudo</label>
-				<input type='text' name='pseudoLogin'/>
+				<input class='champ' type='text' name='pseudoLogin'/>
 			</p>
 			<p>
 				<label for='mdpLogin'>Mot de passe</label>
-				<input type='password' name='mdpLogin' size='16'/>
+				<input class='champ' type='password' name='mdpLogin' size='16'/>
 			</p>
 			<p>
 				<label for='action'></label>
 				<input class='bouton' type='submit' name='action' value='Connexion'/>
 			</p>
-		</form>
-		<p>Inscription</p>
+		</form></div>
+		<div class='divInscription'>Inscription
 		<form method='post' action='./action/inscription.php'>
 			<p>
 				<label for='nomUtilisateur'>Nom</label>
-				<input type='text' name='nomUtilisateur'/>
+				<input class='champ' type='text' name='nomUtilisateur'/>
 			</p>
 			<p>
 				<label for='prenomUtilisateur'>Prénom</label>
-				<input type='text' name='prenomUtilisateur' />
+				<input class='champ' type='text' name='prenomUtilisateur' />
 			</p>
 			<p>
 				<label for='pseudoUtilisateur'>Pseudo</label>
-				<input type='text' name='pseudoUtilisateur'/>
+				<input class='champ' type='text' name='pseudoUtilisateur'/>
 			</p>
 			<p>
 				<label for='telUtilisateur'>Téléphone</label>
-				<input type='text' name='telUtilisateur'/>
+				<input class='champ' type='text' name='telUtilisateur'/>
 			</p>
 			<p>
 				<label for='mailUtilisateur'>Adresse E-mail</label>
-				<input type='text' name='mailUtilisateur'/>
+				<input class='champ' type='text' name='mailUtilisateur'/>
 			</p>
 			<p>
 				<label for='mdpUtilisateur'>Mot de passe</label>
-				<input type='password' name='mdpUtilisateur'/>
+				<input class='champ' type='password' name='mdpUtilisateur'/>
 			</p>
 			<p>
 				<label for='action'></label>
 				<input class='bouton' type='submit' name='action' value='Inscription'/>
 			</p>
-		</form>";
+		</form></div>";
 		if ($_SESSION["role"]=='1'){
 			include_once "./model/sqlUser.php";
 			echo
-			"<form method='POST' action='./action/User/deleteUser.php'>
+			"<div class='divSuppression'> <form method='POST' action='./action/User/deleteUser.php'>
 			<label for='Supprimer'>Supprimer un utilisateur</label><br/>
 			<select name='idUtilisateur'>";
 			$res =selectAllUtilisateurs();
@@ -61,7 +61,7 @@
 			}
 			echo "</select>
 			<input  class='bouton' type='submit' name='supprimerUtilisateur' value='Supprimer '> </br>
-			</form>";
+			</form></div></div>";
 		}
 	}
 	function afficheAllActu() {
@@ -86,7 +86,7 @@
 	}
 	function afficheUneActu($titre,$date,$utilisateur,$contenu){
 		echo
-		 "<div class='actu'>
+		 "<div class='actuDiv'>
 				<h3>".$titre."</h3>
 				<article>".$contenu."</article>
 				<span>Auteur : ".$utilisateur."</span>
@@ -149,22 +149,33 @@
 	}
 	function affichePeriode($jourDebut,$jourFin){
 		include_once "./model/sqlEvent.php";
- 		$result=selectEventPeriode();
+ 		$result=selectEventPeriode($jourDebut,$jourFin);
 		while($row=mysqli_fetch_assoc($result)){
-			afficheEvent($result['dateEvenement']);
+			afficheEvent($row['dateEvenement']);
 		}
 	}
 	function afficheEvent($jour){
 		include_once "./model/sqlEvent.php";
+		include_once "./model/sqlProjet.php";
 		$result=selectEventJour($jour);
 		while($row=mysqli_fetch_assoc($result)){
+			$nomProjet=mysqli_fetch_assoc(selectProjet($row['idProjet']));
 			echo
 			"<div class='agendaDiv'>
 				<h3 class='nomEvenement'>".$row['nomEvenement']." </h3>
-				<h4 class='nomProjet'>".$row['idProjet']."</h4>
+				<h4 class='nomProjet'>Projet associé : ".$nomProjet['titreProjet']."</h4>
 				<article class='descriptionEvenement'>".$row['descriptionEvenement']."</article>
 				<span class='dateEvenement'>".$row['dateEvenement']."</span><br>
 				<span class='lieuEvenement'>".$row['lieuEvenement']."</span><br>
 			</div>";
 		}
+	}
+	function afficherSelectDate(){
+		if(!isset($_POST['submitSelectDate'])){$dateDebut=date('Y-m-d');$dateFin= date('Y-m-d',strtotime('+1 week'));} else {$dateDebut=$_POST['jourDebut'];$dateFin=$_POST['jourFin']; }
+		echo "<form method='POST' action='./index.php?actionUtilisateur=agenda'>
+		<input type='date' name='jourDebut' value='".$dateDebut."'/>
+		<input type='date' name='jourFin' value='".$dateFin."'/><br>
+		<input type='submit' name='submitSelectDate'/>
+		";
+
 	}
