@@ -10,7 +10,7 @@
 			  }
 		?>
 		</select>
-		<input  class="bouton" type="submit" name="supprimerActu" value="Supprimer "> </br>
+		<input  type="submit" name="supprimerActu" value="Supprimer "> </br>
 </form>
 
 
@@ -26,5 +26,5 @@
      <label for="ajout"/>contenu :</label>
 		<input  type="text" name="contenuActu"><br/>
 
-	<input class="bouton" type="submit" name="insererActu" value="Ajouter une Actu"><br/>
+	<input  type="submit" name="insererActu" value="Ajouter une Actu"><br/>
 </form>
