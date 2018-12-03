@@ -1,5 +1,4 @@
 <?php
-	include_once "./sqlUser.php";
 	function formulaireLogin(){
 
 		echo "<p>Connexion</p>
@@ -17,9 +16,6 @@
 				<input type='submit' name='action' value='Connexion'/>
 			</p>
 		</form>
-
-
-
 		<p>Inscription</p>
 		<form method='post' action='./action/inscription.php'>
 			<p>
@@ -50,10 +46,10 @@
 				<label for='action'></label>
 				<input type='submit' name='action' value='Inscription'/>
 			</p>
-		</form>"
-
-
-		if ($_SESSION["role"]==1){
+		</form>";
+		if ($_SESSION["role"]=='1'){
+			include_once "./model/sqlUser.php";
+			echo
 			"<form method='POST' action='./action/User/deleteUser.php'>
 			<label for='Supprimer'>Supprimer un utilisateur</label><br/>
 			<select name='idUtilisateur'>";
