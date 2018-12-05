@@ -1,52 +1,56 @@
 <?php
 	function formulaireLogin(){
 
-		echo "<div class='formulairesCIS'><div class='divConnexion'>Connexion
-		<form method='post' action='./action/login.php'>
-			<p>
-				<label for='pseudoLogin'>Pseudo</label>
-				<input class='champ' type='text' name='pseudoLogin'/>
-			</p>
-			<p>
-				<label for='mdpLogin'>Mot de passe</label>
-				<input class='champ' type='password' name='mdpLogin' size='16'/>
-			</p>
-			<p>
-				<label for='action'></label>
-				<input class='bouton' type='submit' name='action' value='Connexion'/>
-			</p>
-		</form></div>
-		<div class='divInscription'>Inscription
-		<form method='post' action='./action/inscription.php'>
-			<p>
-				<label for='nomUtilisateur'>Nom</label>
-				<input class='champ' type='text' name='nomUtilisateur'/>
-			</p>
-			<p>
-				<label for='prenomUtilisateur'>Prénom</label>
-				<input class='champ' type='text' name='prenomUtilisateur' />
-			</p>
-			<p>
-				<label for='pseudoUtilisateur'>Pseudo</label>
-				<input class='champ' type='text' name='pseudoUtilisateur'/>
-			</p>
-			<p>
-				<label for='telUtilisateur'>Téléphone</label>
-				<input class='champ' type='text' name='telUtilisateur'/>
-			</p>
-			<p>
-				<label for='mailUtilisateur'>Adresse E-mail</label>
-				<input class='champ' type='text' name='mailUtilisateur'/>
-			</p>
-			<p>
-				<label for='mdpUtilisateur'>Mot de passe</label>
-				<input class='champ' type='password' name='mdpUtilisateur'/>
-			</p>
-			<p>
-				<label for='action'></label>
-				<input class='bouton' type='submit' name='action' value='Inscription'/>
-			</p>
-		</form></div>";
+		echo "
+		<div class='formulairesCIS'>
+			<div class='divConnexion'>Connexion
+				<form method='post' action='./action/login.php'>
+					<p>
+						<label for='pseudoLogin'>Pseudo</label>
+						<input class='champ' type='text' name='pseudoLogin'/>
+					</p>
+					<p>
+						<label for='mdpLogin'>Mot de passe</label>
+						<input class='champ' type='password' name='mdpLogin' size='16'/>
+					</p>
+					<p>
+						<label for='action'></label>
+						<input class='bouton' type='submit' name='action' value='Connexion'/>
+					</p>
+				</form>
+			</div>
+			<div class='divInscription'>Inscription
+				<form method='post' action='./action/inscription.php'>
+					<p>
+					<label for='nomUtilisateur'>Nom</label>
+					<input class='champ' type='text' name='nomUtilisateur'/>
+				</p>
+				<p>
+					<label for='prenomUtilisateur'>Prénom</label>
+					<input class='champ' type='text' name='prenomUtilisateur' />
+				</p>
+				<p>
+					<label for='pseudoUtilisateur'>Pseudo</label>
+					<input class='champ' type='text' name='pseudoUtilisateur'/>
+				</p>
+				<p>
+					<label for='telUtilisateur'>Téléphone</label>
+					<input class='champ' type='text' name='telUtilisateur'/>
+				</p>
+				<p>
+					<label for='mailUtilisateur'>Adresse E-mail</label>
+					<input class='champ' type='text' name='mailUtilisateur'/>
+				</p>
+				<p>
+					<label for='mdpUtilisateur'>Mot de passe</label>
+					<input class='champ' type='password' name='mdpUtilisateur'/>
+				</p>
+				<p>
+					<label for='action'></label>
+					<input class='bouton' type='submit' name='action' value='Inscription'/>
+				</p>
+			</form>
+		</div>";
 		if ($_SESSION["role"]=='1'){
 			include_once "./model/sqlUser.php";
 			echo
