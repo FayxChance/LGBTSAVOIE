@@ -5,6 +5,7 @@ $cheminImage =$PATH."/".$nomIm;
 echo ($cheminImage);
 echo("</br>");
 echo($_FILES['file']['tmp_name']);
-move_uploaded_file($_FILES['file']['tmp_name'],$cheminImage);
+$transfert = move_uploaded_file($_FILES['file']['tmp_name'],$cheminImage);
+echo($transfert);
 echo("yolo");
 ?>
