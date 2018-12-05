@@ -1,7 +1,7 @@
 <?php include_once "./model/sqlActu.php";
  ?>
 <div class="formulairesCIS">
-  <div class=divDeleteActu>
+  <div class=divDelete>
     <form method="POST" action="./action/Actu/deleteActu.php">
       <label for="Supprimer">Supprimer une Actus</label><br/>
       <select name="champIdDelete">
@@ -17,7 +17,7 @@
   </div>
 
 
-<div class="divAjouterActu">
+<div class="divAjouter">
   <form method="POST" action="./action/Actu/insertActu.php">
 	   <p> Ajouter une actualité </p>
 	    <label for="ajout"/>titre :</label>

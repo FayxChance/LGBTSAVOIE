@@ -1,7 +1,8 @@
 <?php
 include_once "./model/sqlEvent.php";
 ?>
-
+<div class="formulairesCIS">
+<div class=divDelete>
 <form method="POST" action="./action/Event/delEvent.php">
    <label for="Supprimer">Supprimer un evenement</label><br/>
 		<select name="idEvent">
@@ -16,9 +17,9 @@ include_once "./model/sqlEvent.php";
 		</select>
 		<input class="bouton" type="submit" name="supprimerEvent" value="Supprimer "> </br>
 </form>
+</div>
 
-
-
+<div class="divAjouter">
 <form method="POST" action="./action/Event/addEvent.php">
 	<p> Ajouter un evenement </p>
 	<label for="ajout"/>nom :</label>
@@ -34,6 +35,8 @@ include_once "./model/sqlEvent.php";
 
 	<input class="bouton" type="submit" name="insererEvent" value="Ajouter un evenement"><br/>
 </form>
+</div>
+</div>
 
 
 
