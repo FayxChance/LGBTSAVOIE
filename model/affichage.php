@@ -180,7 +180,7 @@
 		<section class='selectDateForm'>
 		<input type='date' name='jourDebut' value='".$dateDebut."'/>
 		<input type='date' name='jourFin' value='".$dateFin."'/><br></section>
-		<section class='selectDateForm'><input type='submit' name='submitSelectDate' id='submitSelectDate'/></section>
+		<section class='selectDateForm'><input class='bouton' type='submit' name='submitSelectDate' id='submitSelectDate'/></section>
 		";
 
 	}
