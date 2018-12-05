@@ -1,6 +1,7 @@
 <?php include_once "./model/sqlProjet.php";
  ?>
  <div class="formulairesCIS">
+   <div class="divDelete">
  <form class="" action="./action/Projet/deleteProjet.php" method="post">
    <label for="supprimer">Supprimer un projet</label>
 
