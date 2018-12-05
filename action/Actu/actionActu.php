@@ -21,13 +21,13 @@
   <form method="POST" action="./action/Actu/insertActu.php">
 	   <p> Ajouter une actualité </p>
 	    <label for="ajout"/>titre :</label>
-		    <input  type="text" name="titreActu"><br/>
+		    <input class="champ" type="text" name="titreActu"><br/>
 	    <label for="ajout"/>date :</label>
-		    <input  type="date" name="dateActu"><br/>
+		    <input class="champ" type="date" name="dateActu"><br/>
       <label for="ajout"/>utilisateur :</label>
-		    <input  type="number" name="utilisateurActu"><br/>
+		    <input class="champ" type="number" name="utilisateurActu"><br/>
       <label for="ajout"/>contenu :</label>
-		    <input  type="text" name="contenuActu"><br/>
+		    <input class="champ" type="text" name="contenuActu"><br/>
 
 	      <input class="bouton" type="submit" name="insererActu" value="Ajouter une Actu"><br/>
   </form>

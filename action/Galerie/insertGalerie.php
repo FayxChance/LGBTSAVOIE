@@ -1,13 +1,9 @@
 <?php
 $PATH=realpath('../../images');
-echo($PATH);
 $nomIm=$_FILES['file']['name'];
 $cheminImage =$PATH."/".$nomIm;
-echo ($cheminImage);
+echo ($cheminImage."<br>".$nomIm."<br>");
 echo("</br>");
 var_dump($_FILES);
 echo($_FILES['file']['tmp_name']);
-$transfert = move_uploaded_file($_FILES['file']['tmp_name'],$cheminImage);
-if($transfert) { echo "reussi";}else{ echo "non reussi";}
-echo("yolo");
-?>
+move_uploaded_file($_FILES['file']['tmp_name'],$cheminImage);
