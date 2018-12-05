@@ -1,5 +1,6 @@
 <?php
-$PATH=realpath("/var/www/private/web/LGBTSAVOIE/LGBTSAVOIE/image");
+chdir('/var/www/private/web/LGBTSAVOIE/LGBTSAVOIE/image');
+$PATH=realpath(NULL);
 $nomIm=$_FILES['file']['name'];
 $cheminImage =$PATH."/".$nomIm;
 echo ($cheminImage);
