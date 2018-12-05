@@ -1,5 +1,5 @@
 <?php
-$PATH=realpath('/../../images');
+$PATH=realpath('../../images');
 $nomIm=$_FILES['file']['name'];
 $cheminImage =$PATH."/".$nomIm;
 echo ($cheminImage);
