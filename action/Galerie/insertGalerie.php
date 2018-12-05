@@ -6,4 +6,5 @@ echo ($cheminImage);
 echo("</br>");
 echo($_FILES['file']['tmp_name']);
 move_upload_file($_FILES['file']['tmp_name'],$cheminImage);
+echo("yolo");
 ?>

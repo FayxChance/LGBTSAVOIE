@@ -1,5 +1,3 @@
-
-
 <div class="formulairesCIS">
 <form method="POST" action="./action/Galerie/insertGalerie.php" enctype="multipart/form-data">
 	<p> Ajouter une image </p>
