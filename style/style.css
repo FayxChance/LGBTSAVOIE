@@ -160,6 +160,12 @@ header {
   margin: auto;
   margin-top: 20px;
   border: black 2px solid;
+  padding: 50px;
+}
+
+.divAjouter{
+  padding: 40px;
+  border: black 2px solid;
 }
 
 

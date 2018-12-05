@@ -19,7 +19,7 @@
 					</p>
 				</form>
 			</div>
-			<div class='divInscription'>Inscription
+			<div class='divAjouter'>Inscription
 				<form method='post' action='./action/inscription.php'>
 					<p>
 					<label for='nomUtilisateur'>Nom</label>
