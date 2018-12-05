@@ -157,11 +157,8 @@ header {
 
 .formulairesCIS{
   text-align: center;
-  display:flex;
-  flex-direction: row;
   margin: auto;
   margin-top: 20px;
-  width: 75vw;
   border: black 2px solid;
 }
 
