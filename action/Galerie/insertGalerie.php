@@ -1,4 +1,4 @@
-/*<?php
+<?php/*
 $PATH=realpath('../../images');
 $nomIm=$_FILES['file']['name'];
 $cheminImage =$PATH."/".$nomIm;
@@ -11,8 +11,10 @@ move_uploaded_file($_FILES['file']['tmp_name'],$cheminImage);
 =======
 $transfert = move_uploaded_file($_FILES['file']['tmp_name'],$cheminImage);
 if($transfert) { echo "reussi";}else{ echo "non reussi";}
-echo("yolo");
-?> */
+echo("yolo");*/
+?> 
+
+
 <?php
 // Dans les versions de PHP antiéreures à 4.1.0, la variable $HTTP_POST_FILES
 // doit être utilisée à la place de la variable $_FILES.
@@ -35,4 +37,3 @@ print_r($_FILES);
 echo '</pre>';
 
 ?>
->>>>>>> fdf69cf0cb261e952933a5756de40cd7ab8fc8d7
