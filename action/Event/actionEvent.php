@@ -23,15 +23,15 @@ include_once "./model/sqlEvent.php";
 <form method="POST" action="./action/Event/addEvent.php">
 	<p> Ajouter un evenement </p>
 	<label for="ajout"/>nom :</label>
-		<input  type="text" name="nomEvent"><br/>
+		<input class="champ" type="text" name="nomEvent"><br/>
 	<label for="ajout"/>description :</label>
-		<input  type="text" name="descriptionEvent"><br/>
+		<input class="champ"  type="text" name="descriptionEvent"><br/>
     <label for="ajout"/>date :</label>
-		<input  type="date" name="dateEvent"><br/>
+		<input class="champ" type="date" name="dateEvent"><br/>
      <label for="ajout"/>lieu :</label>
-		<input  type="text" name="lieuEvent"><br/>
+		<input class="champ"  type="text" name="lieuEvent"><br/>
     <label for="ajout"/>projet associé :</label>
-		<input  type="number" name="projetEvent"><br/>
+		<input class="champ"  type="number" name="projetEvent"><br/>
 
 	<input class="bouton" type="submit" name="insererEvent" value="Ajouter un evenement"><br/>
 </form>
