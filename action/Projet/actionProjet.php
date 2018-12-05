@@ -1,5 +1,6 @@
 <?php include_once "./model/sqlProjet.php";
  ?>
+ <div class="formulairesCIS">
  <form class="" action="./action/Projet/deleteProjet.php" method="post">
    <label for="supprimer">Supprimer un projet</label>
 
@@ -13,7 +14,10 @@
    </select>
    <input class="bouton" type="submit" name="supprProjet" value="Suppression">
  </form>
+</div>
 
+
+ <div class="divAjouter">
  <form method="POST" action="./action/Projet/insertProjet.php">
  	<p> Ajouter un projet </p>
  	<label for="ajout"/>titre :</label>
@@ -24,3 +28,5 @@
  	<input  type="number" name="auteurProjet"><br/>
  	<input class="bouton" type="submit" name="insererProjet" value="Ajouter un projet"><br/>
  </form>
+</div>
+</div>
