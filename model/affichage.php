@@ -54,7 +54,7 @@
 		if ($_SESSION["role"]=='1'){
 			include_once "./model/sqlUser.php";
 			echo
-			"<div class='divSuppression'> <form method='POST' action='./action/User/deleteUser.php'>
+			"<div class='divDelete'> <form method='POST' action='./action/User/deleteUser.php'>
 			<label for='Supprimer'>Supprimer un utilisateur</label><br/>
 			<select name='idUtilisateur'>";
 			$res =selectAllUtilisateurs();
