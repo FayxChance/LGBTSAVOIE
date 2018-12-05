@@ -14,6 +14,11 @@ header {
   background-color: rgba(0,0,200,0.2);
   position:sticky;
   position:-webkit-sticky;
+  background-image: url("../background");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
 }
 .headerH1 {
   border:solid purple 4px;
@@ -151,14 +156,15 @@ header {
 	background-color:#4CAF50; /*green*/
 	color:white;
 	border:1px solid white;
-	border-radius: 5%;	-webkit-transition-duration:0.8s;
+	border-radius: 5%;
+  -webkit-transition-duration:0.8s;
 }
 
 .formulairesCIS{
   text-align: center;
   margin: auto;
   margin-top: 20px;
-  
+
   padding: 50px;
 }
 
@@ -178,6 +184,17 @@ header {
   border: black 1px solid;
   text-align: left;
   width:250px;
+  color: white;
+  -webkit-transition-duration:0.4s;
+
+}
+
+.champ:hover{
+  background-color:#4CAF50;
+  padding : 15px;
+  -webkit-transition-duration:0.4s;
+  border: 1px white solid;
+
 }
 
 label{

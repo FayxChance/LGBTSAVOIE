@@ -116,6 +116,7 @@
 	  }
 	}
 	function afficheEtatConnexion(){
+		echo "<section class='headerConnexion'>";
 		if (!$_SESSION['connecte']){
 			echo "Vous n'êtes pas connecté.";
 			echo  "<a href='index.php?actionUtilisateur=login'>Connexion/Inscription</a>";
@@ -124,6 +125,7 @@
 			echo "Vous êtes connecté en tant que : ".$_SESSION['pseudoConnecte'].".";
 			echo "<a href='./action/logout.php'>Se déconnecter</a>";
 		}
+		echo "</section>";
 	}
 	function afficheUlUtilisateur(){
 		echo '
