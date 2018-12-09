@@ -18,9 +18,16 @@ header {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-
 }
-.headerH1 {
+.headerConnexion{
+  color:white;
+  text-decoration: none;
+}
+#lienConnexion, #lienConnexion:visited, #lienConnexion:link {
+  color:white;
+  text-align: none;
+}
+.headerH1  {
   border:solid purple 4px;
   border-radius: 6px;
   width: 20vw;
@@ -94,7 +101,7 @@ header {
   border: dashed rgba(0,0,200,0.2);
 }
 .nomEvenement{
-  color: white;
+  color: black;
   font-size: 150%;
   margin-left: 20px;
   margin-top: 20px;
@@ -164,7 +171,6 @@ header {
   text-align: center;
   margin: auto;
   margin-top: 20px;
-
   padding: 50px;
 }
 

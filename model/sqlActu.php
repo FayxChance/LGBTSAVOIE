@@ -23,7 +23,7 @@
    }
   function selectAllActu(){
     global $c;
-    $selectAll= "SELECT * FROM `Actu` WHERE 1";
+    $selectAll= "SELECT * FROM `Actu` WHERE 1 ORDER BY `dateActus` DESC";
     return mysqli_query($c, $selectAll) ;
   }
   function updateActu($id,$contenu,$titre){

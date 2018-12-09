@@ -17,7 +17,8 @@
  }
  function inserProjet($titre, $description,$idPersonne){
   global $c;
-  echo gettype($idPersonne);
-  $inser= "INSERT INTO `Projet` (`titreProjet`,`auteurProjet`, `descriptionProjet`) VALUES ('$titre',$idPersonne , '$description' )";
+  $idPersonne=intval($idPersonne);
+  $inser= "INSERT INTO `Projet`(`auteurProjet`, `titreProjet`, `descriptionProjet`) VALUES ($idPersonne,'$titre','$description')";
+  echo $inser;
   return mysqli_query($c, $inser) or die(mysqli_error($c));
   }

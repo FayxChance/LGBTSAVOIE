@@ -118,12 +118,12 @@
 	function afficheEtatConnexion(){
 		echo "<section class='headerConnexion'>";
 		if (!$_SESSION['connecte']){
-			echo "Vous n'êtes pas connecté.";
-			echo  "<a href='index.php?actionUtilisateur=login'>Connexion/Inscription</a>";
+			echo "Vous n'êtes pas connecté. ";
+			echo  "<a id='lienConnexion' href='index.php?actionUtilisateur=login'>Connexion/Inscription</a>";
 		}
 		else {
-			echo "Vous êtes connecté en tant que : ".$_SESSION['pseudoConnecte'].".";
-			echo "<a href='./action/logout.php'>Se déconnecter</a>";
+			echo "Vous êtes connecté en tant que : ".$_SESSION['pseudoConnecte'].". ";
+			echo "<a id='lienConnexion' href='./action/logout.php'>Se déconnecter</a>";
 		}
 		echo "</section>";
 	}
@@ -185,4 +185,26 @@
 		<section class='selectDateForm'><input class='bouton' type='submit' name='submitSelectDate' id='submitSelectDate'/></section>
 		";
 
+	}
+	function afficheUneImage($nomImage){
+		echo "
+			<img src='./images/".$nomImage."' class='galerieImage'></img>
+		";
+	}
+	function affiche10images($indicePhoto){
+		$tableauImage=scandir("./images/");
+		$i=0;
+		while($i<$indicePhoto+2){
+			unset($tableauImage[i]);
+			i++;
+		}
+		$tableauImage=array_values($tableauImage);
+		foreach ($tableauImage as $key) {
+			afficheUneImage($key);
+		}
+		// for ($i=$indicePhoto+2; $i <$indicePhoto+10 ; $i++) {
+		// 	if(isset($tableauImage)){
+		// 		afficheUneImage($tableauImage[i]);
+		// 	}
+		// }
 	}
