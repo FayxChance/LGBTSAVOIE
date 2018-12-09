@@ -5,18 +5,16 @@
     <p>
       LGBT+Savoie est une association LGBTQI+ loi 1901 universitaire (USMB)ayant pour but d'informer à propos des LGBTphobies.
     </p>
-  <section/>
+  </section>
   <section>
     <h2> Que fait l'association ? </h2>
     <p>
-      Nous avons divers projets, allant de l'organisation d'événements au   groupe de parole, en passant par les interventions scolaires.
+      Nous avons divers projets, allant de l'organisation d'événements au groupe de parole, en passant par les interventions scolaires.
     </p>
   </section>
-  <h2>Quelques actus</h2>
-  <div class="quelquesActu">
+  <h2>Nos dernières actualités</h2>
     <?php
     include_once "./model/affichage.php";
     afficheLastActu();
      ?>
-  </div>
 </div>

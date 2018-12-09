@@ -7,6 +7,7 @@
 			$_SESSION['connecte']=true;
 			$_SESSION['role']=$row['roleUtilisateur'];
 			$_SESSION['pseudoConnecte']=$row['pseudoUtilisateur'];
+			$_SESSION['idConnecte']=$row['idUtilisateur'];
 		}
 	}
 	header("Location:../index.php");

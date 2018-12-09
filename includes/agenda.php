@@ -1,4 +1,4 @@
-<section class="agenda">
+
 <?php
  include_once "./model/affichage.php";
  afficherSelectDate();
@@ -9,4 +9,3 @@
    affichePeriode(date('Y-m-d'),date('Y-m-d',strtotime('+1 week')));
  }
  ?>
-</section>

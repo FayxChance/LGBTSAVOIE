@@ -6,7 +6,6 @@
 html {
   height: 100vh;
 }
-
 body {
   background: rgba(0,0,200,0.25);
 }
@@ -43,18 +42,15 @@ header {
   background: rgba(0,0,200,0.2);
   color: white;
 }
-
 .headerNav {
   margin-top: 26px;
   display: flex;
   flex-direction: column;
 }
-
 .headerUl {
   display: flex;
   list-style: none;
 }
-
 .headerA, .headerA:visited, .headerA:link {
   text-decoration: none;
   color: black;
@@ -68,17 +64,14 @@ header {
 }
 .headerLi {
   margin: 20px auto;
-
 }
-
 #headerALogin{
   position: left;
 }
-
 #headerLiContact {
   background-color: white;
 }
-.accueil {
+.accueil{
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -87,7 +80,22 @@ header {
   margin: 60px auto;
   text-align: center;
 }
-.agenda {
+.accueil h1 {
+  color: purple;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.accueil h2 {
+  color: brown;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.accueil section {
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.agenda, .actu, .projet {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -95,13 +103,13 @@ header {
   width: 65vw;
   margin: 60px auto;
 }
-.agendaDiv{
+.agendaDiv, .actuDiv,.projetDiv{
   text-align: left;
   margin: 20px 20px;
   border: dashed rgba(0,0,200,0.2);
 }
 .nomEvenement{
-  color: black;
+  color: purple;
   font-size: 150%;
   margin-left: 20px;
   margin-top: 20px;
@@ -111,43 +119,37 @@ header {
   margin-top: 20px;
   color:brown;
 }
-.descriptionEvenement{
+.descriptionEvenement, .descriptionProjet, .descriptionActu{
   margin-top: 20px;
   margin-left: 60px;
   margin-right: 40px;
   word-wrap: break-word;
 }
-.dateEvenement{
+.dateEvenement,.dateActu{
   margin-top: 10px;
   margin-left: 30px;
+  margin-bottom: 10px;
 }
 .lieuEvenement{
   margin-top: 5px;
   margin-left: 30px;
+}
+.auteurProjet,.auteurActu {
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-bottom: 10px;
 }
 .selectDateForm {
   margin: auto;
   text-align: center;
   margin:10px auto;
 }
-.actu{
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  background-color: rgba(0,0,200,0.2);
-  width: 65vw;
-  margin: 60px auto;
-}
-.actuDiv {
-  text-align: left;
-  margin: 20px 20px;
-  border: dashed rgba(0,0,200,0.2);
-}
-.actu h3 {
+.actu h3, .projet h3, .accueil h3  {
   color: purple;
+  font-size: 150%;
+  margin-left: 20px;
+  margin-top: 20px;
 }
-
-
 .bouton{
 	padding:10px 24px;
 	font-size:15px;
@@ -158,7 +160,6 @@ header {
 	-webkit-transition-duration:0.8s;
 	margin:20px;
 }
-
 .bouton:hover{
 	background-color:#4CAF50; /*green*/
 	color:white;
@@ -166,51 +167,43 @@ header {
 	border-radius: 5%;
   -webkit-transition-duration:0.8s;
 }
-
 .formulairesCIS{
   text-align: center;
   margin: auto;
   margin-top: 20px;
   padding: 50px;
 }
-
 .divAjouter{
   padding: 20px;
-
 }
-
 .divDelete{
   padding: 20px;
-
 }
-
 .champ{
   padding:5px;
   margin: 10px;
   border: black 1px solid;
   text-align: left;
   width:250px;
-  color: white;
+  color: black;
   -webkit-transition-duration:0.4s;
 
 }
-
 .champ:hover{
   background-color:#4CAF50;
+
   padding : 15px;
   -webkit-transition-duration:0.4s;
   border: 1px white solid;
 
 }
-
 label{
     display: block; /* La balise devient de type block. */
     width: 150px;
     float: left;
 
 }
-
 footer {
-position: fixed;
-bottom: 0px;
+  position: fixed;
+  bottom: 0px;
 }

@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	function formulaireLogin(){
 
 		echo "
@@ -72,11 +73,13 @@
 		include_once "./model/sqlUser.php";
 		include_once "./model/sqlActu.php";
 		$results = selectAllActu();
+		echo "<div class='actu'> <h1 style='text-align:center;color:purple;margin:20px auto;'>Actualités</h1>";
 		while ($row = mysqli_fetch_assoc($results)) {
 			$resultUser=selectUtilisateur($row['utilisateurActus']);
 			$rowUser=mysqli_fetch_assoc($resultUser);
 			afficheUneActu($row['titreActus'],$row['dateActus'],$rowUser['pseudoUtilisateur'],$row['contenuActus']);
 	  }
+		echo "</div>";
   }
 	function afficheLastActu(){
 		include_once "./model/sqlUser.php";
@@ -92,28 +95,60 @@
 		echo
 		 "<div class='actuDiv'>
 				<h3>".$titre."</h3>
-				<article>".$contenu."</article>
-				<span>Auteur : ".$utilisateur."</span>
-				<span>Date : ".$date."</span>
+				<article class='descriptionActu'>".$contenu."</article>
+				<span class='auteurActu'>Auteur : ".$utilisateur."</span>
+				<span class='dateActu'>Date : ".$date."</span>
 			</div>";
 	}
-	function afficheUnProjet($auteur,$titre,$description){
+	function affichageBoutonProjet($id){
+		echo "
+			<form action='./action/Assoc/inscriptionProjet.php' method='POST' class='formBoutonInscriptionProjet'>
+			<input type='text' hidden name='idProjet' value='$id'/>
+			<input type='text' hidden name='idConnecte' value='".$_SESSION['idConnecte']."'/>
+			<span><input type='submit' name='inscriptionProjet' class='bouton'/></span>
+			</form>";
+	}
+	function afficheUnProjet($id,$auteur,$titre,$description,$utilisateurInscrit){
+
+		include_once "./model/sqlUser.php";
+
 		echo
-		 "<div class='actu'>
+		 "<div class='projetDiv'>
 				<h3>".$titre."</h3>
-				<article>".$description."</article>
-				<span>Auteur : ".$auteur."</span>
-			</div>";
+				<article class='descriptionProjet'>".$description."</article>
+				<p class='auteurProjet'>Auteur : ".$auteur;
+				//var_dump($utilisateurInscrit);
+
+			//var_dump($rowInscrit=mysqli_fetch_assoc($utilisateurInscrit));
+			$rowInscrit=mysqli_fetch_assoc($utilisateurInscrit);
+			while ($rowInscrit) {
+				$rowInscrit=mysqli_fetch_assoc($utilisateurInscrit);
+				$resultUser=selectUtilisateur($rowInscrit['idUtilisateur']);
+				$nomUser=mysqli_fetch_assoc($resultUser);
+				echo " ".$nomUser['pseudoUtilisateur'];
+			}
+			echo "</p>";
+
+		if($_SESSION['connecte']){
+			affichageBoutonProjet($id);
+		}
+		echo "</div>";
 	}
 	function afficheAllProjet() {
 		include_once "./model/sqlUser.php";
 		include_once "./model/sqlProjet.php";
+		include_once "./model/sqlAssoc.php";
+		echo "<div class='projet'><h1 style='text-align:center;color:purple;margin:20px auto;'>Projets</h1>";
 		$results = selectAllProjet();
-		while ($row = mysqli_fetch_assoc($results)) {
+		while (	$row = mysqli_fetch_assoc($results)) {
+			$resultUserInscrit=allInscrit($row['idProjet']);
+
 			$resultUser=selectUtilisateur($row['auteurProjet']);
 			$rowUser=mysqli_fetch_assoc($resultUser);
-			afficheUnProjet($rowUser['pseudoUtilisateur'],$row['titreProjet'],$row['descriptionProjet']);
+
+			afficheUnProjet($row['idProjet'],$rowUser['pseudoUtilisateur'],$row['titreProjet'],$row['descriptionProjet'],$resultUserInscrit);
 	  }
+		echo "</div>";
 	}
 	function afficheEtatConnexion(){
 		echo "<section class='headerConnexion'>";
@@ -156,9 +191,11 @@
 	function affichePeriode($jourDebut,$jourFin){
 		include_once "./model/sqlEvent.php";
  		$result=selectEventPeriode($jourDebut,$jourFin);
+		echo "<div class='agenda' ><h1 style='text-align:center;color:purple;margin:20px auto;'>Agenda</h1>";
 		while($row=mysqli_fetch_assoc($result)){
 			afficheEvent($row['dateEvenement']);
 		}
+		echo "</div>";
 	}
 	function afficheEvent($jour){
 		include_once "./model/sqlEvent.php";
@@ -193,18 +230,11 @@
 	}
 	function affiche10images($indicePhoto){
 		$tableauImage=scandir("./images/");
-		$i=0;
-		while($i<$indicePhoto+2){
-			unset($tableauImage[i]);
-			i++;
-		}
+		unset($tableauImage[0]);
+		unset($tableauImage[1]);
+
 		$tableauImage=array_values($tableauImage);
 		foreach ($tableauImage as $key) {
 			afficheUneImage($key);
 		}
-		// for ($i=$indicePhoto+2; $i <$indicePhoto+10 ; $i++) {
-		// 	if(isset($tableauImage)){
-		// 		afficheUneImage($tableauImage[i]);
-		// 	}
-		// }
 	}
