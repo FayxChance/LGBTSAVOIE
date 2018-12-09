@@ -232,7 +232,12 @@
 		$tableauImage=scandir("./images/");
 		unset($tableauImage[0]);
 		unset($tableauImage[1]);
-
+		$tableauImage=array_values($tableauImage);
+		for($i=0;$i<$indicePhoto*10;$i++){
+			if(!is_null($tableauImage[$i])){
+				unset($tableauImage[$i]);
+			}
+		}
 		$tableauImage=array_values($tableauImage);
 		foreach ($tableauImage as $key) {
 			afficheUneImage($key);
