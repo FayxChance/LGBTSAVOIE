@@ -1,5 +1,5 @@
 <?php
   include_once "./model/affichage.php";
   // affichagePhotoSuivante();
-  affiche10images(1);
+  affiche10images(0);
  ?>

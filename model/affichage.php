@@ -96,8 +96,8 @@
 		 "<div class='actuDiv'>
 				<h3>".$titre."</h3>
 				<article class='descriptionActu'>".$contenu."</article>
-				<span class='auteurActu'>Auteur : ".$utilisateur."</span>
-				<span class='dateActu'>Date : ".$date."</span>
+				<p class='auteurActu'>Auteur : ".$utilisateur."</p>
+				<p class='dateActu'>Date : ".$date."</p>
 			</div>";
 	}
 	function affichageBoutonProjet($id){
@@ -117,9 +117,6 @@
 				<h3>".$titre."</h3>
 				<article class='descriptionProjet'>".$description."</article>
 				<p class='auteurProjet'>Auteur : ".$auteur;
-				//var_dump($utilisateurInscrit);
-
-			//var_dump($rowInscrit=mysqli_fetch_assoc($utilisateurInscrit));
 			$rowInscrit=mysqli_fetch_assoc($utilisateurInscrit);
 			while ($rowInscrit) {
 				$rowInscrit=mysqli_fetch_assoc($utilisateurInscrit);
@@ -219,7 +216,7 @@
 		<section class='selectDateForm'>
 		<input type='date' name='jourDebut' value='".$dateDebut."'/>
 		<input type='date' name='jourFin' value='".$dateFin."'/><br></section>
-		<section class='selectDateForm'><input class='bouton' type='submit' name='submitSelectDate' id='submitSelectDate'/></section>
+		<section class='selectDateForm'><input class='bouton' type='submit' name='submitSelectDate' id='submitSelectDate'value='Choix période'/></section>
 		";
 
 	}
@@ -233,13 +230,41 @@
 		unset($tableauImage[0]);
 		unset($tableauImage[1]);
 		$tableauImage=array_values($tableauImage);
-		for($i=0;$i<$indicePhoto*10;$i++){
+		for($i=0;$i<$indicePhoto*10-1;$i++){
 			if(!is_null($tableauImage[$i])){
 				unset($tableauImage[$i]);
 			}
 		}
+		for($j=($indicePhoto+1)*10;$j<count($tableauImage);$j++){
+			if(!is_null($tableauImage[$j])){
+				unset($tableauImage[$j]);
+			}
+		}
 		$tableauImage=array_values($tableauImage);
+		echo "<div class='galerie'> ";
+		affichePostImage();
 		foreach ($tableauImage as $key) {
 			afficheUneImage($key);
 		}
+		echo "</div>";
+	}
+	function affichePostImage(){
+		if(isset($_POST['submitImageSuiv'])){
+			$_POST['image']++;
+		}
+		else if(isset($_POST['submitImagePrec'])){
+			$_POST['image']--;
+		}
+		else {
+			$_POST['image']=0;
+		}
+		echo "
+		<form method='POST' action='./index.php?actionUtilisateur=galerie'>
+			<input type='submit' name='submitImagePrec' value='<'/>
+			<span>".$_POST['image']."</span>
+			<input type='text' name='image' hidden value='".$_POST['image']."' />
+			<input type='submit' name='submitImageSuiv' value='>'/>
+			";
+
+		echo "</form>";
 	}
