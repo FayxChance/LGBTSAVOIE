@@ -18,6 +18,8 @@
  function inserProjet($titre, $description,$idPersonne){
   global $c;
   $idPersonne=intval($idPersonne);
+  $description=mysqli_real_escape_string($c,$description);
+  var_dump($description);
   $inser= "INSERT INTO `Projet`(`auteurProjet`, `titreProjet`, `descriptionProjet`) VALUES ($idPersonne,'$titre','$description')";
   echo $inser;
   return mysqli_query($c, $inser) or die(mysqli_error($c));

@@ -5,8 +5,6 @@
   unset($tableauImage[0]);
   unset($tableauImage[1]);
   $tableauImage=array_values($tableauImage);
-  var_dump(intval(count($tableauImage)/10));
-  var_dump(intval($_POST['image']));
   if(isset($_POST['submitImageSuiv'])&& intval($_POST['image'])<intval(count($tableauImage)/10)){
     affiche10images($_POST['image']+1);
   }

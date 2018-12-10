@@ -1,9 +1,9 @@
 <?php
 	session_start();
 	function formulaireLogin(){
-
+		echo "		<div class='formulairesCIS'>";
+		if(!$_SESSION['connecte']){
 		echo "
-		<div class='formulairesCIS'>
 			<div class='divConnexion'>Connexion
 				<form method='post' action='./action/login.php'>
 					<p>
@@ -23,35 +23,36 @@
 			<div class='divAjouter'>Inscription
 				<form method='post' action='./action/inscription.php'>
 					<p>
-					<label for='nomUtilisateur'>Nom</label>
-					<input class='champ' type='text' name='nomUtilisateur'/>
-				</p>
-				<p>
-					<label for='prenomUtilisateur'>Prénom</label>
-					<input class='champ' type='text' name='prenomUtilisateur' />
-				</p>
-				<p>
-					<label for='pseudoUtilisateur'>Pseudo</label>
-					<input class='champ' type='text' name='pseudoUtilisateur'/>
-				</p>
-				<p>
-					<label for='telUtilisateur'>Téléphone</label>
-					<input class='champ' type='text' name='telUtilisateur'/>
-				</p>
-				<p>
-					<label for='mailUtilisateur'>Adresse E-mail</label>
-					<input class='champ' type='text' name='mailUtilisateur'/>
-				</p>
-				<p>
-					<label for='mdpUtilisateur'>Mot de passe</label>
-					<input class='champ' type='password' name='mdpUtilisateur'/>
-				</p>
-				<p>
-					<label for='action'></label>
-					<input class='bouton' type='submit' name='action' value='Inscription'/>
-				</p>
-			</form>
-		</div>";
+						<label for='nomUtilisateur'>Nom</label>
+						<input class='champ' type='text' name='nomUtilisateur'/>
+					</p>
+					<p>
+						<label for='prenomUtilisateur'>Prénom</label>
+						<input class='champ' type='text' name='prenomUtilisateur' />
+					</p>
+					<p>
+						<label for='pseudoUtilisateur'>Pseudo</label>
+						<input class='champ' type='text' name='pseudoUtilisateur'/>
+					</p>
+					<p>
+						<label for='telUtilisateur'>Téléphone</label>
+						<input class='champ' type='text' name='telUtilisateur'/>
+					</p>
+					<p>
+						<label for='mailUtilisateur'>Adresse E-mail</label>
+						<input class='champ' type='text' name='mailUtilisateur'/>
+					</p>
+					<p>
+						<label for='mdpUtilisateur'>Mot de passe</label>
+						<input class='champ' type='password' name='mdpUtilisateur'/>
+					</p>
+					<p>
+						<label for='action'></label>
+						<input class='bouton' type='submit' name='action' value='Inscription'/>
+					</p>
+				</form>
+			</div>";
+		}
 		if ($_SESSION["role"]=='1'){
 			include_once "./model/sqlUser.php";
 			echo
@@ -101,12 +102,23 @@
 			</div>";
 	}
 	function affichageBoutonProjet($id){
-		echo "
-			<form action='./action/Assoc/inscriptionProjet.php' method='POST' class='formBoutonInscriptionProjet'>
-			<input type='text' hidden name='idProjet' value='$id'/>
-			<input type='text' hidden name='idConnecte' value='".$_SESSION['idConnecte']."'/>
-			<span><input type='submit' name='inscriptionProjet' class='bouton'/></span>
+		include_once "./includes/sqlAssoc.php";
+		$inscrit=mysqli_fetch_assoc(estInscrit($id,$_SESSION['idConnecte']));
+		if(is_null($inscrit)){
+			echo "
+				<form action='./action/Assoc/inscriptionProjet.php' method='POST' class='formBoutonInscriptionProjet'>
+				<input type='text' hidden name='idProjet' value='$id'/>
+				<input type='text' hidden name='idConnecte' value='".$_SESSION['idConnecte']."'/>
+				<span><input type='submit' name='inscriptionProjet' value='Inscription au projet' class='bouton'/></span>
+				</form>";
+		}
+		else {
+			echo "<form action='./action/Assoc/desinscriptionProjet.php' method='POST' class='formBoutonInscriptionProjet'>
+			<input type='text' hidden name='idProjetD' value='$id'/>
+			<input type='text' hidden name='idConnecteD' value='".$_SESSION['idConnecte']."'/>
+			<span><input type='submit' name='inscriptionProjetD' value='Se desinscrire' class='bouton'/></span>
 			</form>";
+		}
 	}
 	function afficheUnProjet($id,$auteur,$titre,$description,$utilisateurInscrit){
 
@@ -119,10 +131,11 @@
 				<p class='auteurProjet'>Auteur : ".$auteur. " Participant : ";
 			$rowInscrit=mysqli_fetch_assoc($utilisateurInscrit);
 			while ($rowInscrit) {
-				$rowInscrit=mysqli_fetch_assoc($utilisateurInscrit);
 				$resultUser=selectUtilisateur($rowInscrit['idUtilisateur']);
 				$nomUser=mysqli_fetch_assoc($resultUser);
 				echo " ".$nomUser['pseudoUtilisateur'];
+				$rowInscrit=mysqli_fetch_assoc($utilisateurInscrit);
+
 			}
 			echo "</p>";
 
@@ -139,10 +152,8 @@
 		$results = selectAllProjet();
 		while (	$row = mysqli_fetch_assoc($results)) {
 			$resultUserInscrit=allInscrit($row['idProjet']);
-
 			$resultUser=selectUtilisateur($row['auteurProjet']);
 			$rowUser=mysqli_fetch_assoc($resultUser);
-
 			afficheUnProjet($row['idProjet'],$rowUser['pseudoUtilisateur'],$row['titreProjet'],$row['descriptionProjet'],$resultUserInscrit);
 	  }
 		echo "</div>";
@@ -229,38 +240,35 @@
 		$tableauImage=scandir("./images/");
 		unset($tableauImage[0]);
 		unset($tableauImage[1]);
-		$tableauImage=array_values($tableauImage);
-		for($i=0;$i<$indicePhoto*10;$i++){
-			if(!is_null($tableauImage[$i])){
-				unset($tableauImage[$i]);
-			}
-		}
-		for($j=($indicePhoto+1)*10;$j<count($tableauImage);$j++){
-			if(!is_null($tableauImage[$j])){
-				unset($tableauImage[$j]);
-			}
-		}
+
+		var_dump($tableauImage);
+
 		$tableauImage=array_values($tableauImage);
 		echo "<div class='galerie'> ";
 		affichePostImage($tableauImage);
 		echo "<div class='divImage'>";
-		$j=0;
-		for($j=1;$j<=2;$j++){
-			echo "<div class='ligneImage'>";
-			for ($i=$j*5-5; $i <= intval(count($tableauImage)/2*$j-1); $i++) {
+		echo "<div class='ligneImage'>";
+		for ($i=0+10*$indicePhoto; $i <10*$indicePhoto+5; $i++) {
+			if(!is_null($tableauImage[$i])){
 				afficheUneImage($tableauImage[$i]);
 			}
-			echo "</div>";
-
 		}
+		echo "</div>";
+		echo "<div class='ligneImage'>";
+		for ($i=5+10*$indicePhoto; $i <10*$indicePhoto+10; $i++) {
+			if(!is_null($tableauImage[$i])){
+				afficheUneImage($tableauImage[$i]);
+			}
+		}
+		echo "</div>";
 		echo "</div>";
 		echo "</div>";
 	}
 	function affichePostImage($tableau){
-		if(isset($_POST['submitImageSuiv']) && count($tableau)%10+1>intval($_POST['image'])) {
+		if(isset($_POST['submitImageSuiv']) && $_POST['image']< intval(count($tableau)/10)) {
 			$_POST['image']++;
 		}
-		else if(isset($_POST['submitImagePrec']) && intval($_POST['image'])>0 ){
+		else if(isset($_POST['submitImagePrec']) && $_POST['image']>1){
 			$_POST['image']--;
 		}
 		else {
@@ -268,12 +276,11 @@
 		}
 		echo "
 		<form method='POST' action='./index.php?actionUtilisateur=galerie' class='selectPageImage'>
-			<input type='submit' name='submitImagePrec' value='<'/>
+			<input type='submit' name='submitImagePrec' value='<' class='bouton'/>
 			<span>".$_POST['image']."</span>
 			<input type='text' name='image' hidden value='".$_POST['image']."' />
-			<input type='submit' name='submitImageSuiv' value='>'/>
+			<input type='submit' name='submitImageSuiv' value='>' class='bouton'/>
 			";
-			var_dump($_POST['image']);
 
 		echo "</form>";
 	}

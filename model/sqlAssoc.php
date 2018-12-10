@@ -16,4 +16,9 @@
     var_dump($requete);
     return mysqli_query($c,$requete);
   }
+  function deleteUserProjet($idProjet,$idPersonne){
+    global $c;
+    $requete="DELETE FROM `Assoc` WHERE idProjet=$idProjet AND idUtilisateur=$idPersonne";
+    return mysqli_query($c,$requete);
+  }
  ?>

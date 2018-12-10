@@ -25,8 +25,6 @@
  	<input class="champ" type="text" name="titreProjet"><br/>
   <label for="ajout"/>description :</label>
  	<input class="champ" type="text" name="descriptionProjet"><br/>
-  <label for="ajout"/>Auteur :</label>
- 	<input class="champ" type="number" name="auteurProjet"><br/>
  	<input class="bouton" type="submit" name="insererProjet" value="Ajouter un projet"><br/>
  </form>
 </div>
