@@ -241,8 +241,6 @@
 		unset($tableauImage[0]);
 		unset($tableauImage[1]);
 
-		var_dump($tableauImage);
-
 		$tableauImage=array_values($tableauImage);
 		echo "<div class='galerie'> ";
 		affichePostImage($tableauImage);

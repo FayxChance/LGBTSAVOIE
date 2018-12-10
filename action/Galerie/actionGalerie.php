@@ -4,5 +4,7 @@
 	<label for="file"/>Image</label>
 		<input type="file" name="file"><br/>
 		<input class="bouton" type="submit" name="insererGalerie" value="Upload une image"><br/>
+		<?php include_once "./model/erreur.php";?>
+
 </form>
 </div>
