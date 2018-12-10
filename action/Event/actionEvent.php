@@ -23,35 +23,26 @@ include_once "./model/sqlEvent.php";
 <form method="POST" action="./action/Event/addEvent.php">
 	<p> Ajouter un evenement </p>
 	<label for="ajout"/>nom :</label>
-		<input class="champ" type="text" name="nomEvent"><br/>
+	<input class="champ" type="text" name="nomEvent"><br/>
 	<label for="ajout"/>description :</label>
-		<input class="champ"  type="text" name="descriptionEvent"><br/>
-    <label for="ajout"/>date :</label>
-		<input class="champ" type="date" name="dateEvent"><br/>
-     <label for="ajout"/>lieu :</label>
-		<input class="champ"  type="text" name="lieuEvent"><br/>
-    <label for="ajout"/>projet associé :</label>
-		<input class="champ"  type="number" name="projetEvent"><br/>
-
-	<input class="bouton" type="submit" name="insererEvent" value="Ajouter un evenement"><br/>
+	<input class="champ"  type="text" name="descriptionEvent"><br/>
+  <label for="ajout"/>date :</label>
+	<input class="champ" type="date" name="dateEvent"><br/>
+  <label for="ajout"/>lieu :</label>
+	<input class="champ"  type="text" name="lieuEvent"><br/>
+  <label for="ajout"/>projet associé :</label>
+  <select name="idEventAjout">
+  <?php
+  include_once "./model/sqlProjet.php";
+    $res=selectAllProjet();
+    while($row = mysqli_fetch_assoc($res)){
+      echo"<option value='".$row["idProjet"]."'>";
+      echo $row["titreProjet"];
+      echo"</option>";
+    }
+  ?>
+  </select>
+  <input class="bouton" type="submit" name="insererEvent" value="Ajouter un evenement"><br/>
 </form>
 </div>
 </div>
-
-
-
-<!--<form method="POST" action="updEvent.php">
-    <label for="update">Nouveau nom</label><br/>
-		<input type="text" name="updateNom"><br/>
-     <label for="update">Nouveau description</label><br/>
-        <input type="text" name="updateDescription"><br/>
-    <label for="update">Nouveau date</label><br/>
-        <input type="date" name="updateDate"><br/>
-    <label for="update">Nouveau lieu</label><br/>
-        <input type="text" name="updateLieu"><br/>
-    <label for="update">Nouveau projet associé</label><br/>
-        <input type="integer" name="updateProjet"><br/>
-
-
-	<input  type="submit" name="updateEvent" value="update">
-</form>-->

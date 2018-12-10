@@ -24,8 +24,6 @@
 		    <input class="champ" type="text" name="titreActu"><br/>
 	    <label for="ajout"/>date :</label>
 		    <input class="champ" type="date" name="dateActu"><br/>
-      <label for="ajout"/>utilisateur :</label>
-		    <input class="champ" type="number" name="utilisateurActu"><br/>
       <label for="ajout"/>contenu :</label>
 		    <input class="champ" type="text" name="contenuActu"><br/>
 

@@ -17,6 +17,7 @@
  }
   function inserActu($titre, $date, $utilisateur, $contenu){
        global $c;
+       $contenu=mysqli_real_escape_string($c,$contenu);
        $inser= "INSERT INTO `Actu`( `titreActus`, `dateActus`, `utilisateurActus`, `contenuActus`)
        VALUES('$titre', '$date', $utilisateur, '$contenu')";
        return mysqli_query($c, $inser) ;
@@ -26,9 +27,5 @@
     $selectAll= "SELECT * FROM `Actu` WHERE 1 ORDER BY `dateActus` DESC";
     return mysqli_query($c, $selectAll) ;
   }
-  function updateActu($id,$contenu,$titre){
-        global $c;
-        $update= "UPDATE `Actu` SET `titreActu`=$titre,`contenuActu`=$contenu WHERE `Actu`.`idActu`=$id";
-        mysqli_query($c,$update);
-    }
+
 ?>

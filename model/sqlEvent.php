@@ -26,6 +26,7 @@ include_once "../../includes/db.php";
   function inserEvent($id, $nom, $description, $date, $lieu)
   {
     global $c;
+    $inser=mysqli_real_escape_string($inser);
     $inser= "INSERT INTO `Evenement`(`idProjet`,`nomEvenement`,`descriptionEvenement`,`dateEvenement`,`lieuEvenement`) VALUES($id,'$nom','$description','$date','$lieu')";
     return mysqli_query($c, $inser);
  }

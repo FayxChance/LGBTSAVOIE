@@ -1,6 +1,6 @@
 <?php
 
     include_once "../../model/sqlActu.php";
-    inserActu($_POST["titreActu"],$_POST["dateActu"],$_POST["utilisateurActu"],$_POST["contenuActu"]);
+    inserActu($_POST["titreActu"],$_POST["dateActu"],1,$_POST["contenuActu"]);
     header("Location:../../index.php?actionAdmin=actu&actionUtilisateur=actu");
 ?>
