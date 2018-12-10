@@ -95,7 +95,7 @@ header {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.agenda, .actu, .projet {
+.agenda, .actu, .projet, .galerie {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -140,7 +140,7 @@ header {
   margin-left: 30px;
   margin-bottom: 10px;
 }
-.selectDateForm {
+.selectDateForm, .selectPageImage {
   margin: auto;
   text-align: center;
   margin:10px auto;
@@ -197,6 +197,19 @@ header {
   -webkit-transition-duration:0.4s;
   border: 1px white solid;
 
+}
+.galerie {
+  width:auto;
+  text-align: center;
+}
+.galerieImage {
+  width:200px;
+  height: 320px;
+  margin: 20px 30px;
+}
+.divImage {
+  display: flex;
+  flex-direction: column;
 }
 label{
     display: block; /* La balise devient de type block. */

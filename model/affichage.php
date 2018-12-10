@@ -116,7 +116,7 @@
 		 "<div class='projetDiv'>
 				<h3>".$titre."</h3>
 				<article class='descriptionProjet'>".$description."</article>
-				<p class='auteurProjet'>Auteur : ".$auteur;
+				<p class='auteurProjet'>Auteur : ".$auteur. " Participant : ";
 			$rowInscrit=mysqli_fetch_assoc($utilisateurInscrit);
 			while ($rowInscrit) {
 				$rowInscrit=mysqli_fetch_assoc($utilisateurInscrit);
@@ -230,7 +230,7 @@
 		unset($tableauImage[0]);
 		unset($tableauImage[1]);
 		$tableauImage=array_values($tableauImage);
-		for($i=0;$i<$indicePhoto*10-1;$i++){
+		for($i=0;$i<$indicePhoto*10;$i++){
 			if(!is_null($tableauImage[$i])){
 				unset($tableauImage[$i]);
 			}
@@ -242,29 +242,38 @@
 		}
 		$tableauImage=array_values($tableauImage);
 		echo "<div class='galerie'> ";
-		affichePostImage();
-		foreach ($tableauImage as $key) {
-			afficheUneImage($key);
+		affichePostImage($tableauImage);
+		echo "<div class='divImage'>";
+		$j=0;
+		for($j=1;$j<=2;$j++){
+			echo "<div class='ligneImage'>";
+			for ($i=$j*5-5; $i <= intval(count($tableauImage)/2*$j-1); $i++) {
+				afficheUneImage($tableauImage[$i]);
+			}
+			echo "</div>";
+
 		}
 		echo "</div>";
+		echo "</div>";
 	}
-	function affichePostImage(){
-		if(isset($_POST['submitImageSuiv'])){
+	function affichePostImage($tableau){
+		if(isset($_POST['submitImageSuiv']) && count($tableau)%10+1>intval($_POST['image'])) {
 			$_POST['image']++;
 		}
-		else if(isset($_POST['submitImagePrec'])){
+		else if(isset($_POST['submitImagePrec']) && intval($_POST['image'])>0 ){
 			$_POST['image']--;
 		}
 		else {
 			$_POST['image']=0;
 		}
 		echo "
-		<form method='POST' action='./index.php?actionUtilisateur=galerie'>
+		<form method='POST' action='./index.php?actionUtilisateur=galerie' class='selectPageImage'>
 			<input type='submit' name='submitImagePrec' value='<'/>
 			<span>".$_POST['image']."</span>
 			<input type='text' name='image' hidden value='".$_POST['image']."' />
 			<input type='submit' name='submitImageSuiv' value='>'/>
 			";
+			var_dump($_POST['image']);
 
 		echo "</form>";
 	}
