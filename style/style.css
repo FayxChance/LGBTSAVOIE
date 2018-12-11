@@ -223,6 +223,31 @@ label{
   text-align: center;
   padding: 20px;
 }
+.divContact section {
+  margin:20px;
+
+}
+.divContact h4 {
+  margin:20px;
+  color:purple;
+}
+.divContact h5 {
+  margin:20px;
+  color:brown;
+
+}
+.divContact a,.divContact a:link, .divContact a:visited {
+  margin: 20px;
+  text-decoration: none;
+  color: green;
+}
+.divContact a:hover {
+  color:white;
+}
+.divContact span {
+  color:red;
+}
+
 .boutonFace{
   background:url('../facebook.jpg');
   width: 226px;

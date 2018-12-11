@@ -327,10 +327,12 @@
 		</form>
 		<section class='contactPresidente'>
 		<h4>Présidente : Brunelle Cordier-Pierre-Bes</h4>
-		<h5>Vice président : Hamze Al-Rasheed</h5>";
+		<p>Mail : <span>brunelle.cordier-pierre-bes@etu.univ-smb.fr </span></p>
+		<h5>Vice président : Hamze Al-Rasheed</h5>
+		<p> </p>";
 		if($_SESSION['connecte']){
-			echo " <a class='doc' href='./Statuts-LGBTSavoie.pdf'>Statut LGBTSavoie</a>
-			<a class='doc'href='./Procès-Verbal-LGBTSavoie.pdf'>Procès verbal LGBTSavoie</a>";
+			echo " <p><a class='doc' href='./Statuts-LGBTSavoie.pdf'>Statut LGBTSavoie</a></p><br>
+		<p>	<a class='doc'href='./Procès-Verbal-LGBTSavoie.pdf'>Procès verbal LGBTSavoie</a></p>";
 		}
-		echo "</div></div>";
+		echo "</section></div></div>";
 	}
