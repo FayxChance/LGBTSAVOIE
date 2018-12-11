@@ -15,6 +15,8 @@
 			}
 		}
 		unset($_SESSION['data']);
+		header("Location:../index.php?actionUtilisateur=index");
 	}
-	header("Location:../index.php?actionUtilisateur=index");
+	header("Location:../index.php?actionUtilisateur=login");
+
 ?>
