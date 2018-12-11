@@ -70,4 +70,66 @@
         $_SESSION['error']['descriptionProjet']="Entrer un description.";
       }
     }
+      else if(isset($_POST['actionLogin']) && $_POST['actionLogin']=='Connexion') {
+        if(!empty($_POST['pseudoLogin']) && preg_match("/[a-z0-9A-Z_\-\_\']/",$_POST['pseudoLogin']) && strlen($_POST['pseudoLogin'])<20){
+          unset($_SESSION["error"]["pseudoLogin"]);
+          $_SESSION['data']['pseudoLogin']=$_POST['pseudoLogin'];
+        }
+        else{
+          $_SESSION['error']['pseudoLogin']="Erreur dans le pseudo.";
+        }
+        if(!empty($_POST['mdpLogin']) && preg_match("/[a-z0-9A-Z_\-\_\']/",$_POST['mdpLogin']) && strlen($_POST['mdpLogin'])<16){
+          unset($_SESSION["error"]["mdpLogin"]);
+          $_SESSION['data']['mdpLogin']=$_POST['mdpLogin'];
+        }
+        else{
+          $_SESSION['error']['mdpLogin']="Erreur dans le mot de passe.";
+        }
+
+    } else if(isset($_POST['actionInscription']) && $_POST['actionInscription']=='Inscription') {
+
+        if(!empty($_POST['nomUtilisateur']) && preg_match("/[a-z0-9A-Z_\-\_\']/",$_POST['nomUtilisateur']) && strlen($_POST['nomUtilisateur'])<20){
+          unset($_SESSION["error"]["nomUtilisateur"]);
+          $_SESSION['data']['nomUtilisateur']=$_POST['nomUtilisateur'];
+        }
+        else{
+          $_SESSION['error']['nomUtilisateur']="Erreur dans le nom.";
+        }
+        if(!empty($_POST['prenomUtilisateur']) && preg_match("/[a-z0-9A-Z_\-\_\']/",$_POST['prenomUtilisateur']) && strlen($_POST['prenomUtilisateur'])<20){
+          unset($_SESSION["error"]["prenomUtilisateur"]);
+          $_SESSION['data']['prenomUtilisateur']=$_POST['prenomUtilisateur'];
+        }
+        else{
+          $_SESSION['error']['prenomUtilisateur']="Erreur dans le prenom.";
+        }
+        if(!empty($_POST['pseudoUtilisateur']) && preg_match("/[a-z0-9A-Z_\-\_\']/",$_POST['pseudoUtilisateur']) && strlen($_POST['pseudoUtilisateur'])<20){
+          unset($_SESSION["error"]["pseudoUtilisateur"]);
+          $_SESSION['data']['pseudoUtilisateur']=$_POST['pseudoUtilisateur'];
+        }
+        else{
+          $_SESSION['error']['pseudoUtilisateur']="Erreur dans le pseudo.";
+        }
+        if(!empty($_POST['telUtilisateur']) && preg_match("/[0-9_+]/",$_POST['telUtilisateur']) && strlen($_POST['telUtilisateur'])<13 && is_numeric($_POST['telUtilisateur'])){
+          unset($_SESSION["error"]["telUtilisateur"]);
+          $_SESSION['data']['telUtilisateur']=$_POST['telUtilisateur'];
+        }
+        else{
+          $_SESSION['error']['telUtilisateur']="Erreur dans le teléphone.";
+        }
+        if(!empty($_POST['mailUtilisateur']) && preg_match('/^[^0-9][_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/',$_POST['mailUtilisateur'])){
+          unset($_SESSION["error"]["mailUtilisateur"]);
+          $_SESSION['data']['mailUtilisateur']=$_POST['mailUtilisateur'];
+        }
+        else{
+          $_SESSION['error']['mailUtilisateur']="Erreur dans le mail.";
+        }
+        if(!empty($_POST['mdpUtilisateur']) && preg_match("/[a-z0-9A-Z_\-\_\']/",$_POST['mdpUtilisateur']) && strlen($_POST['mdpUtilisateur'])<16){
+          unset($_SESSION["error"]["mdpUtilisateur"]);
+          $_SESSION['data']['mdpUtilisateur']=$_POST['mdpUtilisateur'];
+        }
+        else{
+          $_SESSION['error']['mdpUtilisateur']="Erreur dans le mot de passe.";
+        }
+
+    }
   ?>

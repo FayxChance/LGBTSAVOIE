@@ -3,12 +3,42 @@
 	function formulaireLogin(){
 		echo "		<div class='formulairesCIS'>";
 		if(!$_SESSION['connecte']){
+			if(issset($_SESSION['data']['pseudoLogin'])){
+				$pseudoLogin=$_SESSION['data']['pseudoLogin'];
+			} else {
+				$pseudoLogin="";
+			}
+			if(issset($_SESSION['data']['nomUtilisateur'])){
+				$nomUtilisateur=$_SESSION['data']['nomUtilisateur'];
+			}else {
+				$nomUtilisateur="";
+			}
+			if(issset($_SESSION['data']['prenomUtilisateur'])){
+				$prenomUtilisateur=$_SESSION['data']['prenomUtilisateur'];
+			}else {
+				$prenomUtilisateur="";
+			}
+			if(issset($_SESSION['data']['pseudoUtilisateur'])){
+				$pseudoUtilisateur=$_SESSION['data']['pseudoUtilisateur'];
+			}else {
+				$pseudoUtilisateur="";
+			}
+			if(issset($_SESSION['data']['telUtilisateur'])){
+				$telUtilisateur=$_SESSION['data']['telUtilisateur'];
+			}else {
+				$telUtilisateur="";
+			}
+			if(issset($_SESSION['data']['mailUtilisateur'])){
+				$mailUtilisateur=$_SESSION['data']['mailUtilisateur'];
+			}else {
+				$mailUtilisateur="";
+			}
 		echo "
 			<div class='divConnexion'>Connexion
 				<form method='post' action='./action/login.php'>
 					<p>
 						<label for='pseudoLogin'>Pseudo</label>
-						<input class='champ' type='text' name='pseudoLogin'/>
+						<input class='champ' type='text' name='pseudoLogin' value='".$."'/>
 					</p>
 					<p>
 						<label for='mdpLogin'>Mot de passe</label>
@@ -16,7 +46,7 @@
 					</p>
 					<p>
 						<label for='action'></label>
-						<input class='bouton' type='submit' name='action' value='Connexion'/>
+						<input class='bouton' type='submit' name='actionLogin' value='Connexion'/>
 					</p>
 				</form>
 			</div>
@@ -24,23 +54,24 @@
 				<form method='post' action='./action/inscription.php'>
 					<p>
 						<label for='nomUtilisateur'>Nom</label>
-						<input class='champ' type='text' name='nomUtilisateur'/>
+						<input class='champ' type='text' name='nomUtilisateur' value='".$nomUtilisateur."'/>
 					</p>
 					<p>
 						<label for='prenomUtilisateur'>Prénom</label>
-						<input class='champ' type='text' name='prenomUtilisateur' />
+						<input class='champ' type='text' name='prenomUtilisateur' value='".$prenomUtilisateur."' />
 					</p>
 					<p>
 						<label for='pseudoUtilisateur'>Pseudo</label>
-						<input class='champ' type='text' name='pseudoUtilisateur'/>
+						<input class='champ' type='text' name='pseudoUtilisateur' value='".$pseudoUtilisateur."'/>
 					</p>
 					<p>
 						<label for='telUtilisateur'>Téléphone</label>
-						<input class='champ' type='text' name='telUtilisateur'/>
+						<input class='champ' type='text' name='telUtilisateur' value='".$telUtilisateur."'/>
 					</p>
 					<p>
 						<label for='mailUtilisateur'>Adresse E-mail</label>
-						<input class='champ' type='text' name='mailUtilisateur'/>
+						<input class='champ' type='text' name='mailUtilisateur'
+						value='".$mailUtilisateur."'/>
 					</p>
 					<p>
 						<label for='mdpUtilisateur'>Mot de passe</label>
@@ -48,11 +79,11 @@
 					</p>
 					<p>
 						<label for='action'></label>
-						<input class='bouton' type='submit' name='action' value='Inscription'/>
+						<input class='bouton' type='submit' name='actionInscription' value='Inscription'/>
 					</p>
 				</form>
 			</div>";
-		}
+			include_once "./model/erreur.php";unset($_SESSION['error']);		}
 		if ($_SESSION["role"]=='1'){
 			include_once "./model/sqlUser.php";
 			echo
