@@ -1,4 +1,261 @@
 * {
+  font-family: fantasy;
   margin: 0px;
   padding: 0px;
+}
+html {
+  height: 100vh;
+}
+body {
+  background: rgba(0,0,200,0.25);
+}
+header {
+  background-color: rgba(0,0,200,0.2);
+  position:sticky;
+  position:-webkit-sticky;
+  background-image: url("../background");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.headerConnexion{
+  color:white;
+  text-decoration: none;
+}
+#lienConnexion, #lienConnexion:visited, #lienConnexion:link {
+  color:white;
+  text-align: none;
+}
+.headerH1  {
+  border:solid purple 4px;
+  border-radius: 6px;
+  width: 20vw;
+  box-shadow:
+    0 0 0 4px blue,
+    0 0 0 8px green,
+    0 0 0 12px yellow,
+    0 0 0 16px orange,
+    0 0 0 20px red;
+  margin: 20px auto;
+  padding: 10px;
+  text-align: center;
+  background: rgba(0,0,200,0.2);
+  color: white;
+}
+.headerNav {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+}
+.headerUl {
+  display: flex;
+  list-style: none;
+}
+.headerA, .headerA:visited, .headerA:link {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  width: auto;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  border:none;
+  font-size: 16px;
+}
+.headerLi {
+  margin: 20px auto;
+}
+#headerALogin{
+  position: left;
+}
+#headerLiContact {
+  background-color: white;
+}
+.accueil{
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: rgba(0,0,200,0.2);
+  width: 65vw;
+  margin: 60px auto;
+  text-align: center;
+}
+.accueil h1 {
+  color: purple;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.accueil h2 {
+  color: brown;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.accueil section {
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.agenda, .actu, .projet, .galerie, .contact {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: rgba(0,0,200,0.2);
+  width: 65vw;
+  margin: 60px auto;
+}
+.agendaDiv, .actuDiv,.projetDiv{
+  text-align: left;
+  margin: 20px 20px;
+  border: dashed rgba(0,0,200,0.2);
+}
+.nomEvenement{
+  color: purple;
+  font-size: 150%;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.nomProjet{
+  margin-left: 40px;
+  margin-top: 20px;
+  color:brown;
+}
+.descriptionEvenement, .descriptionProjet, .descriptionActu{
+  margin-top: 20px;
+  margin-left: 60px;
+  margin-right: 40px;
+  margin-bottom: 15px;
+  word-wrap: break-word;
+}
+.dateEvenement,.dateActu{
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+.lieuEvenement{
+  margin-top: 5px;
+  margin-left: 30px;
+}
+.auteurProjet,.auteurActu {
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+.selectDateForm, .selectPageImage {
+  margin: auto;
+  text-align: center;
+  margin:10px auto;
+}
+.actu h3, .projet h3, .accueil h3  {
+  color: purple;
+  font-size: 150%;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.bouton{
+	padding:10px 24px;
+	font-size:15px;
+	border-radius:25%;
+	background-color:white;
+	color:black;
+	border:1px solid #4CAF50;
+	-webkit-transition-duration:0.8s;
+	margin:20px;
+}
+.bouton:hover{
+	background-color:#4CAF50; /*green*/
+	color:white;
+	border:1px solid white;
+	border-radius: 5%;
+  -webkit-transition-duration:0.8s;
+}
+.formulairesCIS{
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  padding: 50px;
+}
+.divAjouter{
+  padding: 20px;
+}
+.divDelete{
+  padding: 20px;
+}
+.champ{
+  padding:5px;
+  margin: 10px;
+  border: black 1px solid;
+  text-align: left;
+  width:250px;
+  color: black;
+  -webkit-transition-duration:0.4s;
+
+}
+.champ:hover{
+  background-color:#4CAF50;
+
+  padding : 15px;
+  -webkit-transition-duration:0.4s;
+  border: 1px white solid;
+
+}
+.galerie {
+  width:auto;
+  text-align: center;
+}
+.galerieImage {
+  width:230px;
+  height: 250px;
+  margin: 20px 30px;
+}
+.divImage {
+  display: flex;
+  flex-direction: column;
+}
+label{
+    display: block; /* La balise devient de type block. */
+    width: 150px;
+    float: left;
+}
+.divContact{
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  text-align: center;
+  padding: 20px;
+}
+.divContact section {
+  margin:20px;
+
+}
+.divContact h4 {
+  margin:20px;
+  color:purple;
+}
+.divContact h5 {
+  margin:20px;
+  color:brown;
+
+}
+.divContact a,.divContact a:link, .divContact a:visited {
+  margin: 20px;
+  text-decoration: none;
+  color: green;
+}
+.divContact a:hover {
+  color:white;
+}
+.divContact span {
+  color:red;
+}
+
+.boutonFace{
+  background:url('../facebook.jpg');
+  width: 226px;
+  height:99px;
+  border:none;
+  border-radius:15px;
+}
+footer {
+  position: fixed;
+  bottom: 0px;
 }

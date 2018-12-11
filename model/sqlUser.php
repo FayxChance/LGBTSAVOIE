@@ -1,14 +1,29 @@
 <?php
-
-  function selectUtilisateur($id)
-  {
-      $select="SELECT (`nomUtilisateur`,`prenomUtilisateurs`,`pseudoUtilisateur`,`telUtilisateur`,`mailUtilisateur`,`mdpUtilisateur`,`roleUtilisateur`,`fonctionUtilisateur`) FROM Utilisateurs (`nomUtilisateur`,`prenomUtilisateurs`,`pseudoUtilisateur`,`telUtilisateur`,`mailUtilisateur`,`mdpUtilisateur`,`roleUtilisateur`,`fonctionUtilisateur`)
-      WHERE id=$id";
-      return mysqli_query($c, $select);
+  include_once "../includes/db.php";
+  function selectUtilisateur($id){
+    global $c;
+    $select="SELECT `idUtilisateur`, `nomUtilisateur`, `prenomUtilisateur`, `pseudoUtilisateur`, `telUtilisateur`, `mailUtilisateur`, `mdpUtilisateur`, `roleUtilisateur` FROM `Utilisateur` WHERE  idUtilisateur=$id";
+    return mysqli_query($c, $select);
   }
 
-function selectAllUtilisateurs()
-{
-    $select="SELECT * FROM Utilisateurs ";
-    return mysqli_query($c, $select) ;
+  function selectAllUtilisateurs(){
+  global $c;
+  $select="SELECT `idUtilisateur`, `nomUtilisateur`, `prenomUtilisateur`, `pseudoUtilisateur`, `telUtilisateur`, `mailUtilisateur`, `mdpUtilisateur`, `roleUtilisateur` FROM `Utilisateur`  ";
+  return mysqli_query($c, $select) ;
+ }
+
+  function insertUtilisateur($nomUtilisateur, $prenomUtilisateurs, $pseudoUtilisateur, $telUtilisateur, $mailUtilisateur, $mdpUtilisateur, $roleUtilisateur){
+  global $c;
+
+  $inser= "INSERT INTO `Utilisateur`(`nomUtilisateur`, `prenomUtilisateur`, `pseudoUtilisateur`, `telUtilisateur`, `mailUtilisateur`, `mdpUtilisateur`, `roleUtilisateur`) VALUES ('$nomUtilisateur','$prenomUtilisateurs','$pseudoUtilisateur','$telUtilisateur', '$mailUtilisateur','$mdpUtilisateur','$roleUtilisateur')";
+  return mysqli_query($c, $inser);
+ }
+
+  function deleteUtilisateur($id){
+  include_once "../../includes/db.php";
+  $delete= "DELETE FROM `Utilisateur` WHERE `Utilisateur`.`idUtilisateur`=$id";
+  echo $delete;
+  return mysqli_query($c, $delete) or die(mysqli_connect_error($c)); 
 }
+
+?>

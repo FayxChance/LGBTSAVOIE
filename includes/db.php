@@ -1,5 +1,4 @@
 <?php
-session_start();
 $host_name = 'private';
 $database = 'ScriptGate';
 $user_name = 'root';

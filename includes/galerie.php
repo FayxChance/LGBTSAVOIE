@@ -1,9 +1,17 @@
 <?php
-  session_start();
-  include "./includes/header.php";
-?>
-
-
-<?php
-  include "./includes/footer.php";
-?>
+  include_once "./model/affichage.php";
+  // affichagePhotoSuivante();
+  $tableauImage=scandir("./images/");
+  unset($tableauImage[0]);
+  unset($tableauImage[1]);
+  $tableauImage=array_values($tableauImage);
+  if(isset($_POST['submitImageSuiv'])&& intval($_POST['image'])<intval(count($tableauImage)/10)){
+    affiche10images($_POST['image']+1);
+  }
+  else if(isset($_POST['submitImagePrec']) && $_POST['image']>0){
+    affiche10images($_POST['image']-1);
+  }
+  else {
+    affiche10images(0);
+  }
+ ?>
