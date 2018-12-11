@@ -23,13 +23,21 @@ include_once "./model/sqlEvent.php";
 <form method="POST" action="./action/Event/addEvent.php">
 	<p> Ajouter un evenement </p>
 	<label for="ajout"/>nom :</label>
-	<input class="champ" type="text" name="nomEvent"><br/>
+	<input class="champ" type="text" name="nomEvent" value='<?php if(isset($_SESSION['data']['nomEvent'])){
+    echo $_SESSION['data']['nomEvent'];
+  } ?>'><br/>
 	<label for="ajout"/>description :</label>
-	<input class="champ"  type="text" name="descriptionEvent"><br/>
+	<input class="champ"  type="text" name="descriptionEvent" value='<?php if(isset($_SESSION['data']['descriptionEvent'])){
+    echo $_SESSION['data']['descriptionEvent'];
+  } ?>'><br/>
   <label for="ajout"/>date :</label>
-	<input class="champ" type="date" name="dateEvent"><br/>
+	<input class="champ" type="date" name="dateEvent" value='<?php if(isset($_SESSION['data']['dateEvent'])){
+    echo $_SESSION['data']['dateEvent'];
+  } ?>' ><br/>
   <label for="ajout"/>lieu :</label>
-	<input class="champ"  type="text" name="lieuEvent"><br/>
+	<input class="champ"  type="text" name="lieuEvent" value='<?php if(isset($_SESSION['data']['lieuEvent'])){
+    echo $_SESSION['data']['lieuEvent'];
+  } ?>'><br/>
   <label for="ajout"/>projet associé :</label>
   <select name="idEventAjout">
   <?php
@@ -43,6 +51,8 @@ include_once "./model/sqlEvent.php";
   ?>
   </select>
   <input class="bouton" type="submit" name="insererEvent" value="Ajouter un evenement"><br/>
+  <?php include_once "./model/erreur.php";unset($_SESSION['error']);?>
+
 </form>
 </div>
 </div>

@@ -50,18 +50,20 @@ if(isset($_FILES['file'])){
       $expensions= array("jpeg","jpg","png");
 
       if(in_array($file_ext,$expensions)=== false){
-         $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+         $errors[]="Mauvaise extension PNG ou JPG ou JPEG";
       }
 
-      if($file_size > 2097152){
-         $errors[]='File size must be excately 2 MB';
+      if($file_size > 10485760){
+         $errors[]='Fichier trop gros';
       }
-
+      if(empty($_FILES['file'])){
+        $errors['error']="Fichier vide";
+      }
       if(empty($errors)==true){
          move_uploaded_file($file_tmp,"../../images/".$file_name);
          echo "Success";
       }else{
-         print_r($errors);
+         $_SESSION['error']=$errors;
       }
    }
   header("Location:../../index.php?actionAdmin=galerie&actionUtilisateur=galerie")
