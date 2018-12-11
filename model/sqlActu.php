@@ -18,6 +18,8 @@
   function inserActu($titre, $date, $utilisateur, $contenu){
        global $c;
        $contenu=mysqli_real_escape_string($c,$contenu);
+       $titre=mysqli_real_escape_string($c,$titre);
+
        $inser= "INSERT INTO `Actu`( `titreActus`, `dateActus`, `utilisateurActus`, `contenuActus`)
        VALUES('$titre', '$date', $utilisateur, '$contenu')";
        return mysqli_query($c, $inser) ;

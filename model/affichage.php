@@ -3,42 +3,43 @@
 	function formulaireLogin(){
 		echo "		<div class='formulairesCIS'>";
 		if(!$_SESSION['connecte']){
-			if(issset($_SESSION['data']['pseudoLogin'])){
+			if(isset($_SESSION['data']['pseudoLogin'])){
 				$pseudoLogin=$_SESSION['data']['pseudoLogin'];
 			} else {
 				$pseudoLogin="";
 			}
-			if(issset($_SESSION['data']['nomUtilisateur'])){
+			if(isset($_SESSION['data']['nomUtilisateur'])){
 				$nomUtilisateur=$_SESSION['data']['nomUtilisateur'];
 			}else {
 				$nomUtilisateur="";
 			}
-			if(issset($_SESSION['data']['prenomUtilisateur'])){
+			if(isset($_SESSION['data']['prenomUtilisateur'])){
 				$prenomUtilisateur=$_SESSION['data']['prenomUtilisateur'];
 			}else {
 				$prenomUtilisateur="";
 			}
-			if(issset($_SESSION['data']['pseudoUtilisateur'])){
+			if(isset($_SESSION['data']['pseudoUtilisateur'])){
 				$pseudoUtilisateur=$_SESSION['data']['pseudoUtilisateur'];
 			}else {
 				$pseudoUtilisateur="";
 			}
-			if(issset($_SESSION['data']['telUtilisateur'])){
+			if(isset($_SESSION['data']['telUtilisateur'])){
 				$telUtilisateur=$_SESSION['data']['telUtilisateur'];
 			}else {
 				$telUtilisateur="";
 			}
-			if(issset($_SESSION['data']['mailUtilisateur'])){
+			if(isset($_SESSION['data']['mailUtilisateur'])){
 				$mailUtilisateur=$_SESSION['data']['mailUtilisateur'];
 			}else {
 				$mailUtilisateur="";
 			}
+			unset($_SESSION['data']);
 		echo "
 			<div class='divConnexion'>Connexion
 				<form method='post' action='./action/login.php'>
 					<p>
 						<label for='pseudoLogin'>Pseudo</label>
-						<input class='champ' type='text' name='pseudoLogin' value='".$."'/>
+						<input class='champ' type='text' name='pseudoLogin' value='".$pseudoLogin."'/>
 					</p>
 					<p>
 						<label for='mdpLogin'>Mot de passe</label>
@@ -83,7 +84,9 @@
 					</p>
 				</form>
 			</div>";
-			include_once "./model/erreur.php";unset($_SESSION['error']);		}
+			include_once "./model/erreur.php";
+			unset($_SESSION['error']);
+		}
 		if ($_SESSION["role"]=='1'){
 			include_once "./model/sqlUser.php";
 			echo
@@ -312,4 +315,22 @@
 			";
 
 		echo "</form>";
+	}
+
+	function afficheContact(){
+		echo "<div class='contact'>
+		<div class='divContact'>
+		<form action ='https://www.facebook.com/LGBTSavoie-334090480484902/'>
+			<label name='facebook'>
+				<input type='submit' class='boutonFace' value=''>
+			</label>
+		</form>
+		<section class='contactPresidente'>
+		<h4>Présidente : Brunelle Cordier-Pierre-Bes</h4>
+		<h5>Vice président : Hamze Al-Rasheed</h5>";
+		if($_SESSION['connecte']){
+			echo " <a class='doc' href='./Statuts-LGBTSavoie.pdf'>Statut LGBTSavoie</a>
+			<a class='doc'href='./Procès-Verbal-LGBTSavoie.pdf'>Procès verbal LGBTSavoie</a>";
+		}
+		echo "</div></div>";
 	}

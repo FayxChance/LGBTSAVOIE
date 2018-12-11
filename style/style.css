@@ -95,7 +95,7 @@ header {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.agenda, .actu, .projet, .galerie {
+.agenda, .actu, .projet, .galerie, .contact {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -203,8 +203,8 @@ header {
   text-align: center;
 }
 .galerieImage {
-  width:200px;
-  height: 320px;
+  width:230px;
+  height: 250px;
   margin: 20px 30px;
 }
 .divImage {
@@ -215,7 +215,20 @@ label{
     display: block; /* La balise devient de type block. */
     width: 150px;
     float: left;
-
+}
+.divContact{
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  text-align: center;
+  padding: 20px;
+}
+.boutonFace{
+  background:url('../facebook.jpg');
+  width: 226px;
+  height:99px;
+  border:none;
+  border-radius:15px;
 }
 footer {
   position: fixed;

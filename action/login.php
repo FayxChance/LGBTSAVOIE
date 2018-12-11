@@ -1,6 +1,8 @@
 <?php
 	session_start();
 	include_once "../model/sqlUser.php";
+	echo "yolo";
+
 	include_once "./verif.php";
 	if(empty($_SESSION['error'])){
 		$res=selectAllUtilisateurs();
@@ -10,8 +12,9 @@
 				$_SESSION['role']=$row['roleUtilisateur'];
 				$_SESSION['pseudoConnecte']=$row['pseudoUtilisateur'];
 				$_SESSION['idConnecte']=$row['idUtilisateur'];
-				unset($_SESSION['data']);
 			}
 		}
-	header("Location:../index.php");
+		unset($_SESSION['data']);
+	}
+	header("Location:../index.php?actionUtilisateur=index");
 ?>

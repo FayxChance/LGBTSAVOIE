@@ -1,6 +1,8 @@
 <?php
     session_start();
     unset($_SESSION['error']);
+    echo "yolo";
+
     if(isset($_POST['insererActu']) && $_POST['insererActu']=='Ajouter une Actu'){
       if(!empty($_POST['titreActu']) && preg_match("/[a-z0-9A-Z_\-\_\']/",$_POST['titreActu']) && strlen($_POST['titreActu'])<100){
         unset($_SESSION["error"]["titreActu"]);
@@ -69,11 +71,12 @@
       else {
         $_SESSION['error']['descriptionProjet']="Entrer un description.";
       }
-    }
-      else if(isset($_POST['actionLogin']) && $_POST['actionLogin']=='Connexion') {
+    } else if(isset($_POST['actionLogin']) && $_POST['actionLogin']=='Connexion') {
+
         if(!empty($_POST['pseudoLogin']) && preg_match("/[a-z0-9A-Z_\-\_\']/",$_POST['pseudoLogin']) && strlen($_POST['pseudoLogin'])<20){
           unset($_SESSION["error"]["pseudoLogin"]);
           $_SESSION['data']['pseudoLogin']=$_POST['pseudoLogin'];
+
         }
         else{
           $_SESSION['error']['pseudoLogin']="Erreur dans le pseudo.";
@@ -87,7 +90,6 @@
         }
 
     } else if(isset($_POST['actionInscription']) && $_POST['actionInscription']=='Inscription') {
-
         if(!empty($_POST['nomUtilisateur']) && preg_match("/[a-z0-9A-Z_\-\_\']/",$_POST['nomUtilisateur']) && strlen($_POST['nomUtilisateur'])<20){
           unset($_SESSION["error"]["nomUtilisateur"]);
           $_SESSION['data']['nomUtilisateur']=$_POST['nomUtilisateur'];
@@ -109,7 +111,7 @@
         else{
           $_SESSION['error']['pseudoUtilisateur']="Erreur dans le pseudo.";
         }
-        if(!empty($_POST['telUtilisateur']) && preg_match("/[0-9_+]/",$_POST['telUtilisateur']) && strlen($_POST['telUtilisateur'])<13 && is_numeric($_POST['telUtilisateur'])){
+        if(!empty($_POST['telUtilisateur']) && preg_match("/[0-9]/",$_POST['telUtilisateur']) && strlen($_POST['telUtilisateur'])<13 && is_numeric($_POST['telUtilisateur'])){
           unset($_SESSION["error"]["telUtilisateur"]);
           $_SESSION['data']['telUtilisateur']=$_POST['telUtilisateur'];
         }
