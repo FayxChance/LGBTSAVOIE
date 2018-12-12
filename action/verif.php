@@ -46,7 +46,7 @@
         $_SESSION['data']['descriptionEvent']=$_POST['descriptionEvent'];
       }
       else {
-        $_SESSION['error']['descriptionEvent']="Entrer un description.";
+        $_SESSION['error']['descriptionEvent']="Entrer une description.";
       }
       if(!empty($_POST['lieuEvent']) && preg_match("/[a-z0-9A-Z_\-\_\']/",$_POST['lieuEvent'])){
         unset($_SESSION['error']['lieuEvent']);
@@ -69,7 +69,7 @@
         $_SESSION['data']['descriptionProjet']=$_POST['descriptionProjet'];
       }
       else {
-        $_SESSION['error']['descriptionProjet']="Entrer un description.";
+        $_SESSION['error']['descriptionProjet']="Entrer une description.";
       }
     } else if(isset($_POST['actionLogin']) && $_POST['actionLogin']=='Connexion') {
 

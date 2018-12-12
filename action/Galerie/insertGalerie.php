@@ -60,10 +60,9 @@ if(isset($_FILES['file'])){
         $errors['error']="Fichier vide";
       }
       if(empty($errors)==true){
+        var_dump($_FILES['file']);
          move_uploaded_file($file_tmp,"../../images/".$file_name);
          echo "Success";
-      }else{
-         $_SESSION['error']=$errors;
       }
    }
   header("Location:../../index.php?actionAdmin=galerie&actionUtilisateur=galerie")
